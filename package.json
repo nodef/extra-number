@@ -1,0 +1,49 @@
+{
+  "name": "number-extra",
+  "version": "0.2.2",
+  "description": "Extra methods for number.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/number-extra.git"
+  },
+  "keywords": [
+    "number",
+    "extra"
+  ],
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodef/number-extra/issues"
+  },
+  "homepage": "https://github.com/nodef/number-extra#readme",
+  "devDependencies": {
+    "number-aliquotsum": "^0.1.3",
+    "number-divisorcount": "^0.1.3",
+    "number-divisors": "^0.1.3",
+    "number-divisorsum": "^0.1.3",
+    "number-fromroman": "^0.1.3",
+    "number-fromscientific": "^0.1.3",
+    "number-is": "^0.1.3",
+    "number-isabundant": "^0.1.3",
+    "number-iscomposite": "^0.1.3",
+    "number-isdeficient": "^0.1.3",
+    "number-iseven": "^0.1.3",
+    "number-isnatural": "^0.1.3",
+    "number-isnegative": "^0.1.4",
+    "number-isodd": "^0.1.3",
+    "number-isperfect": "^0.1.3",
+    "number-ispositive": "^0.1.3",
+    "number-isprime": "^0.2.3",
+    "number-iswhole": "^0.1.3",
+    "number-toindiansystem": "^0.1.3",
+    "number-toroman": "^0.1.3",
+    "number-toscientific": "^0.1.3",
+    "number-towesternsystem": "^0.1.8",
+    "string-tobaseline": "^0.1.3",
+    "string-tosuperscript": "^0.1.2"
+  }
+}
