@@ -37,7 +37,7 @@ function fromRoman(str) {
   return neg? -z:z;
 };
 function fromScientific(str) {
-  return parseFloat(toBaseLine(str.replace(/\s+/g, '').replace(/[Xx×*]10\^?/g, 'e')));
+  return parseFloat(toBaseLine22(str.replace(/\s+/g, '').replace(/[Xx×*]10\^?/g, 'e')));
 };
 function is(n) {
   return typeof n==='number';
@@ -119,7 +119,7 @@ function toRoman(n) {
 };
 function toScientific(n) {
   var e = Math.floor(Math.log10(n)), m = n*Math.pow(10, -e);
-  return m+'×10'+toSuperscript(e.toString());
+  return m+'×10'+toSuperscript23(e.toString());
 };
 function toWesternSystem(n, sep) {
   // 1. check stringified number
@@ -140,7 +140,7 @@ const FSUP22 = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵝᵞᵟᶿᶥᵠᵡ�
 const TSUP22 = '0123456789+-=()βγδθιφχABDEGHIJKLMNOPRTUVWILNUabcdefghijklmnoprstuvwxyz';
 const FSUB22 = '₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₔᵦᵧᵨᵩᵪₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ';
 const TSUB22 = '0123456789+-=()əβγρφχaehijklmnoprstuvx';
-function toBaseLine(str, sup, sub) {
+function toBaseLine22(str, sup, sub) {
   var s = 0, z = '';
   var sup = sup||[], sub = sub||[];
   var bgn = ['', sup[0]||'', sub[0]||''];
@@ -155,7 +155,7 @@ function toBaseLine(str, sup, sub) {
   return z+end[s];
 };
 const SYM23 = '        ⁽⁾ ⁺ ⁻  ⁰¹²³⁴⁵⁶⁷⁸⁹   ⁼   ᴬᴮ ᴰᴱ ᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾ ᴿ ᵀᵁ ᵂ         ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ ʳˢᵗᵘᵛʷˣʸᶻ     ';
-function toSuperscript(str) {
+function toSuperscript23(str) {
   var z = '';
   for(var c of str) {
     var d = SYM23[c.charCodeAt()-32]||' ';

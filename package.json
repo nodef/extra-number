@@ -1,6 +1,6 @@
 {
   "name": "number-extra",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Extra methods for number.",
   "main": "index.js",
   "scripts": {
@@ -42,8 +42,6 @@
     "number-toindiansystem": "^0.1.3",
     "number-toroman": "^0.1.3",
     "number-toscientific": "^0.1.3",
-    "number-towesternsystem": "^0.1.8",
-    "string-tobaseline": "^0.1.3",
-    "string-tosuperscript": "^0.1.2"
+    "number-towesternsystem": "^0.1.8"
   }
 }
