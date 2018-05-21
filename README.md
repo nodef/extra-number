@@ -27,6 +27,7 @@ Kind methods:
 Evaluate methods:
 - [isPrime](https://www.npmjs.com/package/number-isprime)
 - [isComposite](https://www.npmjs.com/package/number-iscomposite)
+- [round](https://www.npmjs.com/package/number-roundto)
 - [divisors](https://www.npmjs.com/package/number-divisors)
 - [divisorCount](https://www.npmjs.com/package/number-divisorcount)
 - [divisorSum](https://www.npmjs.com/package/number-divisorsum)
