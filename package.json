@@ -1,6 +1,6 @@
 {
   "name": "number-extra",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Extra methods for number.",
   "main": "index.js",
   "scripts": {

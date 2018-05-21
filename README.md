@@ -4,6 +4,7 @@
 
 Extra methods for [number].<br>
 Browserified, minified module: [number-extra.min].
+> NEW: [.round()] added.
 
 ```javascript
 const extra = require('number-extra');
@@ -47,3 +48,4 @@ Convert methods:
 
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 [number-extra.min]: https://www.npmjs.com/package/number-extra.min
+[Number.round]: https://www.npmjs.com/package/number-roundto

@@ -30,14 +30,14 @@ function divisorSum(n) {
 };
 // 4. number-fromroman (fromRoman)
 const SYM4 = [' ', 'I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
-const VAL = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+const VAL4 = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 function fromRoman(str) {
   var s = SYM4.length-1, z = 0;
   var neg = str.search(/^\s*-/)>=0;
   str = str.replace(/\W/g, '').toUpperCase();
   for(var i=0, I=str.length; i<I; i+=SYM4[s].length) {
     while(s>0 && str.substr(i, SYM4[s].length)!==SYM4[s]) s--;
-    z += VAL[s];
+    z += VAL4[s];
   }
   return neg? -z:z;
 };
@@ -135,11 +135,11 @@ function toIndianSystem(n, sep) {
 };
 // 20. number-toroman (toRoman)
 const SYM20 = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
-const VAL = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+const VAL20 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 function toRoman(n) {
   var N = Math.abs(n), z = n<0? '-':'';
   for(var i=SYM20.length-1; i>=0; i--)
-    while(N>=VAL[i]) { N -= VAL[i]; z += SYM20[i]; }
+    while(N>=VAL20[i]) { N -= VAL20[i]; z += SYM20[i]; }
   return z;
 };
 // 21. number-toscientific (toScientific)
@@ -165,19 +165,19 @@ function toWesternSystem(n, sep) {
 };
 // 23. string-tobaseline (toBaseLine23)
 const FSUP23 = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵝᵞᵟᶿᶥᵠᵡᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᶦᶫᶰᶸᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻ';
-const TSUP = '0123456789+-=()βγδθιφχABDEGHIJKLMNOPRTUVWILNUabcdefghijklmnoprstuvwxyz';
-const FSUB = '₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₔᵦᵧᵨᵩᵪₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ';
-const TSUB = '0123456789+-=()əβγρφχaehijklmnoprstuvx';
+const TSUP23 = '0123456789+-=()βγδθιφχABDEGHIJKLMNOPRTUVWILNUabcdefghijklmnoprstuvwxyz';
+const FSUB23 = '₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₔᵦᵧᵨᵩᵪₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ';
+const TSUB23 = '0123456789+-=()əβγρφχaehijklmnoprstuvx';
 function toBaseLine23(str, sup, sub) {
   var s = 0, z = '';
   var sup = sup||[], sub = sub||[];
   var bgn = ['', sup[0]||'', sub[0]||''];
   var end = ['', sup[1]||'', sub[1]||''];
   for(var c of str) {
-    var isup = FSUP23.indexOf(c), isub = FSUB.indexOf(c);
+    var isup = FSUP23.indexOf(c), isub = FSUB23.indexOf(c);
     var sn = isup>=0? 1:(isub>=0? 2:0);
     if(sn!==s) z += end[s]+bgn[sn];
-    z += TSUP[isup]||TSUB[isub]||c;
+    z += TSUP23[isup]||TSUB23[isub]||c;
     s = sn;
   }
   return z+end[s];
@@ -192,27 +192,27 @@ function toSuperscript24(str) {
   }
   return z;
 };
-Array.aliquotSum = aliquotSum;
-Array.divisorCount = divisorCount;
-Array.divisors = divisors;
-Array.divisorSum = divisorSum;
-Array.fromRoman = fromRoman;
-Array.fromScientific = fromScientific;
-Array.is = is;
-Array.isAbundant = isAbundant;
-Array.isComposite = isComposite;
-Array.isDeficient = isDeficient;
-Array.isEven = isEven;
-Array.isNatural = isNatural;
-Array.isNegative = isNegative;
-Array.isOdd = isOdd;
-Array.isPerfect = isPerfect;
-Array.isPositive = isPositive;
-Array.isPrime = isPrime;
-Array.isWhole = isWhole;
-Array.round = roundTo;
-Array.toIndianSystem = toIndianSystem;
-Array.toRoman = toRoman;
-Array.toScientific = toScientific;
-Array.toWesternSystem = toWesternSystem;
-module.exports = Array;
+Number.aliquotSum = aliquotSum;
+Number.divisorCount = divisorCount;
+Number.divisors = divisors;
+Number.divisorSum = divisorSum;
+Number.fromRoman = fromRoman;
+Number.fromScientific = fromScientific;
+Number.is = is;
+Number.isAbundant = isAbundant;
+Number.isComposite = isComposite;
+Number.isDeficient = isDeficient;
+Number.isEven = isEven;
+Number.isNatural = isNatural;
+Number.isNegative = isNegative;
+Number.isOdd = isOdd;
+Number.isPerfect = isPerfect;
+Number.isPositive = isPositive;
+Number.isPrime = isPrime;
+Number.isWhole = isWhole;
+Number.round = roundTo;
+Number.toIndianSystem = toIndianSystem;
+Number.toRoman = toRoman;
+Number.toScientific = toScientific;
+Number.toWesternSystem = toWesternSystem;
+module.exports = Number;

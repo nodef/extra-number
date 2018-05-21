@@ -70,8 +70,8 @@ console.log('5. rename globals');
 var i = 0;
 for(var dep in packageLock.dependencies) {
   var txt = TEXTS.get(dep);
-  var mat = [], re = /^(const|var)\s+(\w+)/g;
-  while((mat=re.exec(txt))!=null) txt = txt.replace(new RegExp(VARSTART+mat[2]+VARSTOP, 'g'), `$1${mat[2]+i}$2`);
+  var mat = [], re = /(^|\r?\n)(const|var)\s+(\w+).*/g;
+  while((mat=re.exec(txt))!=null) txt = txt.replace(new RegExp(VARSTART+mat[3]+VARSTOP, 'g'), `$1${mat[3]+i}$2`);
   TEXTS.set(dep, txt); i++;
 }
 
@@ -107,8 +107,8 @@ for(var dep in packageLock.dependencies) {
 
 console.log('10. export symbols');
 for(var dep in package.devDependencies)
-  z += `Array.${KEYS.get(dep)} = ${VALUES.get(dep)};${os.EOL}`;
+  z += `Number.${KEYS.get(dep)} = ${VALUES.get(dep)};${os.EOL}`;
 for(var [k, v] of ADDKEY)
-  z += `Array.${k} = ${v};${os.EOL}`;
-z += `module.exports = Array;${os.EOL}`;
+  z += `Number.${k} = ${v};${os.EOL}`;
+z += `module.exports = Number;${os.EOL}`;
 fs.writeFileSync('index.js', z);
