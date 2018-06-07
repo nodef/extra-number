@@ -1,6 +1,6 @@
 {
   "name": "number-extra",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Extra methods for number.",
   "main": "index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "number-ispositive": "^0.1.3",
     "number-isprime": "^0.2.3",
     "number-iswhole": "^0.1.3",
-    "number-roundto": "^0.1.1",
+    "number-roundto": "^0.1.2",
     "number-toindiansystem": "^0.1.3",
     "number-toroman": "^0.1.3",
     "number-toscientific": "^0.1.3",
