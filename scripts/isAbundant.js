@@ -1,7 +1,11 @@
+const aliquotSum = require('./aliquotSum');
+
+/**
+ * Check if [number] is [abundant].
+ * {@link https://en.wikipedia.org/wiki/Abundant_number|abundant}
+ * @param {number} n Number.
+ */
 function isAbundant(n) {
-  var z = 0;
-  for(var i=0, I=Math.abs(n); i<I; i++)
-    if(I % i===0) z += i;
-  return z>I;
+  return aliquotSum(n)>n;
 };
 module.exports = isAbundant;
