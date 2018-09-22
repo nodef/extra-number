@@ -1,5 +1,3 @@
-# number-extra
-
 [![NPM](https://nodei.co/npm/number-extra.png)](https://nodei.co/npm/number-extra/)
 
 Extra methods for [number].<br>
