@@ -1,3 +1,6 @@
+# number-extra
+
+> [number-extra](https://www.npmjs.com/package/number-extra) was renamed to [extra-number](https://www.npmjs.com/package/extra-number).
 [![NPM](https://nodei.co/npm/number-extra.png)](https://nodei.co/npm/number-extra/)
 
 Extra methods for [number].<br>

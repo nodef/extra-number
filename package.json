@@ -1,6 +1,6 @@
 {
-  "name": "extra-number",
-  "version": "0.0.1",
+  "name": "number-extra",
+  "version": "0.2.15",
   "description": "Extra methods for number.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodef/extra-number.git"
+    "url": "git+https://github.com/nodef/number-extra.git"
   },
   "keywords": [
     "number",
@@ -17,9 +17,9 @@
   "author": "wolfram77@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nodef/extra-number/issues"
+    "url": "https://github.com/nodef/number-extra/issues"
   },
-  "homepage": "https://github.com/nodef/extra-number#readme",
+  "homepage": "https://github.com/nodef/number-extra#readme",
   "devDependencies": {
     "number-aliquotsum": "^0.1.3",
     "number-divisorcount": "^0.1.3",
