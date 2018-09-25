@@ -1,6 +1,6 @@
 {
-  "name": "number-extra",
-  "version": "0.2.15",
+  "name": "extra-number",
+  "version": "0.2.16",
   "description": "Extra methods for number.",
   "main": "index.js",
   "scripts": {
@@ -8,41 +8,42 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodef/number-extra.git"
+    "url": "git+https://github.com/extra-number/extra-number.git"
   },
   "keywords": [
+    "extra",
     "number",
-    "extra"
+    "merferry"
   ],
   "author": "wolfram77@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nodef/number-extra/issues"
+    "url": "https://github.com/extra-number/extra-number/issues"
   },
-  "homepage": "https://github.com/nodef/number-extra#readme",
+  "homepage": "https://github.com/extra-number/extra-number#readme",
   "devDependencies": {
-    "number-aliquotsum": "^0.1.3",
-    "number-divisorcount": "^0.1.3",
-    "number-divisors": "^0.1.3",
-    "number-divisorsum": "^0.1.3",
-    "number-fromroman": "^0.1.3",
-    "number-fromscientific": "^0.1.3",
-    "number-is": "^0.1.3",
-    "number-isabundant": "^0.1.3",
-    "number-iscomposite": "^0.1.3",
-    "number-isdeficient": "^0.1.3",
-    "number-iseven": "^0.1.3",
-    "number-isnatural": "^0.1.3",
-    "number-isnegative": "^0.1.4",
-    "number-isodd": "^0.1.3",
-    "number-isperfect": "^0.1.3",
-    "number-ispositive": "^0.1.3",
-    "number-isprime": "^0.2.3",
-    "number-iswhole": "^0.1.3",
-    "number-roundto": "^0.1.2",
-    "number-toindiansystem": "^0.1.3",
-    "number-toroman": "^0.1.3",
-    "number-toscientific": "^0.1.3",
-    "number-towesternsystem": "^0.1.8"
+    "@extra-number/aliquot-sum": "^0.1.3",
+    "@extra-number/divisor-count": "^0.1.3",
+    "@extra-number/divisors": "^0.1.3",
+    "@extra-number/divisor-sum": "^0.1.3",
+    "@extra-number/from-roman": "^0.1.3",
+    "@extra-number/from-scientific": "^0.1.3",
+    "@extra-number/is": "^0.1.3",
+    "@extra-number/is-abundant": "^0.1.3",
+    "@extra-number/is-composite": "^0.1.3",
+    "@extra-number/is-deficient": "^0.1.3",
+    "@extra-number/is-even": "^0.1.3",
+    "@extra-number/is-natural": "^0.1.3",
+    "@extra-number/is-negative": "^0.1.4",
+    "@extra-number/is-odd": "^0.1.3",
+    "@extra-number/is-perfect": "^0.1.3",
+    "@extra-number/is-positive": "^0.1.3",
+    "@extra-number/is-prime": "^0.2.3",
+    "@extra-number/is-whole": "^0.1.3",
+    "@extra-number/round": "^0.1.2",
+    "@extra-number/to-indian-system": "^0.1.3",
+    "@extra-number/to-roman": "^0.1.3",
+    "@extra-number/to-scientific": "^0.1.3",
+    "@extra-number/to-western-system": "^0.1.8"
   }
 }
