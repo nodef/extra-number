@@ -41,6 +41,7 @@ function pkgUpdate(pkg, o) {
   p.scripts = {test: 'exit'};
   Array.prototype.push.apply(p.keywords, o.name.split(/\W/));
   p.keywords = Array.from(new Set(p.keywords));
+  Object.assign(p.dependencies||{}, p.devDependencies);
   for(var d of Object.keys(p.dependencies||[]))
     if(!o.requires.includes(d)) p.dependencies[d] = undefined;
   p.devDependencies = undefined;
