@@ -16,7 +16,8 @@ const EOL = os.EOL;
 
 // Get filename.
 function resolve(pth) {
-  return path.extname(pth)===''? pth+'.js':pth;
+  var ext = path.extname(pth);
+  return ['.js', '.ts', '.json'].includes(ext)? pth:pth+'.js';
 };
 
 // Get requires from code.
@@ -84,7 +85,7 @@ function pkgMinify(o) {
   var license = fs.readFileSync('LICENSE', 'utf8');
   var readme = fs.readFileSync('README.md', 'utf8');
   var index = fs.readFileSync('index.min.js', 'utf8');
-  readme = readme.replace(/(\.<br>)/, ', exported as `String`$1');
+  readme = readme.replace(/(\.<br>)/, ', exported as `Number`$1');
   readme = readme.replace(/(\.<br>)[\s\S]*?(\[!\[nodef\])/, `$1${EOL}${ORIGINAL}${EOL}${CDN}${EOL}<br>${EOL}${EOL}${EOL}$2`);
   readme = readme.replace(/extra-number\.min/g, 'extra-number');
   readme += `[unpkg]: https://unpkg.com/extra-number.min${EOL}`;
