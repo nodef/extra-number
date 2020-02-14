@@ -70,8 +70,8 @@ const SYM = [' ', 'I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'C
 const VAL = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
 /**
- * Converts roman number to number.
- * @param {string} txt roman number
+ * Converts roman numerals to number.
+ * @param {string} txt roman numerals
  * @returns {number} eg. XCV -> 95
  */
 function fromRoman(txt) {
@@ -103,8 +103,9 @@ function toBaseLine(str, sup, sub) {
   return z+end[s];
 }
 /**
- * Converts scientific number (text) to number.
- * @param {string} txt scientific number
+ * Converts scientific notation to number.
+ * @param {string} txt scientific notation
+ * @returns {number} eg. 1.498*10³ -> 1498
  */
 function fromScientific(txt) {
   return parseFloat(toBaseLine(txt.replace(/\s+/g, '').replace(/[Xx×*]10\^?/g, 'e')));
@@ -119,8 +120,9 @@ function toSuperscript(str) {
   return z;
 }
 /**
- * Converts number to scientific notation (text).
+ * Converts number to scientific notation.
  * @param {number} n a number
+ * @returns {string} eg. 695700000 -> 6.957×10⁸
  */
 function toScientific(n) {
   var e = Math.floor(Math.log10(n)), m = n*Math.pow(10, -e);
