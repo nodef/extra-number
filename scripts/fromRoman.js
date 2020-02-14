@@ -2,8 +2,8 @@ const SYM = [' ', 'I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'C
 const VAL = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
 /**
- * Converts roman number to number.
- * @param {string} txt roman number
+ * Converts roman numerals to number.
+ * @param {string} txt roman numerals
  * @returns {number} eg. XCV -> 95
  */
 function fromRoman(txt) {
