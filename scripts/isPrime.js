@@ -1,3 +1,7 @@
+/**
+ * Checks if a number is prime.
+ * @param {number} n a number
+ */
 function isPrime(n) {
   n = Math.abs(n);
   // 2, 3 are prime
@@ -9,4 +13,4 @@ function isPrime(n) {
     if(n % (i-1)===0 || n % (i+1)===0) return false;
   return true;
 }
-exports.isPrime = isPrime;
+module.exports = isPrime;

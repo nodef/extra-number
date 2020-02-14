@@ -1,6 +1,11 @@
-function toIndianSystem(n, sep) {
+/**
+ * Converts number to Indian system (text).
+ * @param {number} n a number
+ * @param {string} sep separator (,)
+ */
+function toIndianSystem(n, sep=',') {
   // 1. check stringified number
-  var sep = sep||',', N = n.toString();
+  var N = n.toString();
   var s = N[0]==='-'? 2:1, d = (N.indexOf('.')+1||N.length+1)-1;
   // 2. get before decimal
   var d3 = d-s<=2? 1:0, i = s+((d-s-1) % 2)+d3, z = N.substr(0, i);

@@ -1,5 +1,10 @@
-function roundTo(val, pre=1e-12) {
-  var val = Math.round(val/pre)*pre;
-  return Math.round(val*1e+12)/1e+12;
+/**
+ * Rounds number to specific precision.
+ * @param {number} n a number
+ * @param {number} pre to precision (1e-12)
+ */
+function round(n, pre=1e-12) {
+  n = Math.round(n/pre)*pre;
+  return Math.round(n*1e+12)/1e+12;
 };
-module.exports = roundTo;
+module.exports = round;

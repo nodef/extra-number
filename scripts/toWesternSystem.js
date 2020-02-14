@@ -1,6 +1,11 @@
-function toWesternSystem(n, sep) {
+/**
+ * Converts number to Western system (text).
+ * @param {number} n a number
+ * @param {string} sep separator (,)
+ */
+function toWesternSystem(n, sep=',') {
   // 1. check stringified number
-  var sep = sep||',', N = n.toString();
+  var N = n.toString();
   var s = N[0]==='-'? 2:1;
   var I = (N.indexOf('.')+1||N.length+1)-1;
   // 2. get before decimal
