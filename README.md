@@ -24,5 +24,36 @@ number.toScientific(695700000);
 // '6.957×10⁸' (radius of Sun in m)
 ```
 
+### reference
 
+| Method                 | Action
+|------------------------|-------
+| [is]                   | Checks if value is a number.
+| [isPrime]              | Checks if a number is prime.
+| [compare]              | Compares 2 numbers.
+| [round]                | Rounds number to specific precision.
+| [aliquotSum]           | Gives sum of all proper divisors of n.
+| [properDivisors]       | Gives a list of numbers that n is divisible by, except itself.
+| [significantDigits]    | Counts the number of significant digits of a number.
+| [fromRoman]            | Converts roman numerals to number.
+| [toRoman]              | Converts number to roman numerals.
+| [fromScientific]       | Converts scientific notation to number.
+| [toScientific]         | Converts number to scientific notation.
+
+<br>
+<br>
+
+[![nodef](https://merferry.glitch.me/card/extra-number.svg)](https://nodef.github.io)
+
+[is]: https://github.com/nodef/extra-number/wiki/is
+[isPrime]: https://github.com/nodef/extra-number/wiki/isPrime
+[compare]: https://github.com/nodef/extra-number/wiki/compare
+[round]: https://github.com/nodef/extra-number/wiki/round
+[aliquotSum]: https://github.com/nodef/extra-number/wiki/aliquotSum
+[properDivisors]: https://github.com/nodef/extra-number/wiki/properDivisors
+[significantDigits]: https://github.com/nodef/extra-number/wiki/significantDigits
+[fromRoman]: https://github.com/nodef/extra-number/wiki/fromRoman
+[toRoman]: https://github.com/nodef/extra-number/wiki/toRoman
+[fromScientific]: https://github.com/nodef/extra-number/wiki/fromScientific
+[toScientific]: https://github.com/nodef/extra-number/wiki/toScientific
 [Number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
