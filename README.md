@@ -1,5 +1,6 @@
-Extra methods for [Number].<br>
-Browserified, minified module: [extra-number.min].
+A number is a mathematical object used to count, measure, and label.
+Number type is double-precision 64-bit binary format IEEE 754 value.
+
 
 ```javascript
 const Number = require('extra-number');
