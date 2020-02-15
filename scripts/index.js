@@ -5,6 +5,7 @@ exports.round = require('./round');
 exports.aliquotSum = require('./aliquotSum');
 exports.properDivisors = require('./properDivisors');
 exports.significantDigits = require('./significantDigits');
+exports.fromWords = require('./fromWords');
 exports.fromRoman = require('./fromRoman');
 exports.toRoman = require('./toRoman');
 exports.fromScientific = require('./fromScientific');

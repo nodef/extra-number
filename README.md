@@ -35,10 +35,18 @@ number.toScientific(695700000);
 | [aliquotSum]           | Gives sum of all proper divisors of n.
 | [properDivisors]       | Gives a list of numbers that n is divisible by, except itself.
 | [significantDigits]    | Counts the number of significant digits of a number.
+| [fromWords]            | Converts number in words to number.
 | [fromRoman]            | Converts roman numerals to number.
 | [toRoman]              | Converts number to roman numerals.
 | [fromScientific]       | Converts scientific notation to number.
 | [toScientific]         | Converts number to scientific notation.
+
+### help needed
+
+- fromWords with plural
+- fromRoman with decimal
+- toWords(opt=ordinal/cardinal)
+- toOrdinal
 
 <br>
 <br>
@@ -52,6 +60,7 @@ number.toScientific(695700000);
 [aliquotSum]: https://github.com/nodef/extra-number/wiki/aliquotSum
 [properDivisors]: https://github.com/nodef/extra-number/wiki/properDivisors
 [significantDigits]: https://github.com/nodef/extra-number/wiki/significantDigits
+[fromWords]: https://github.com/nodef/extra-number/wiki/fromWords
 [fromRoman]: https://github.com/nodef/extra-number/wiki/fromRoman
 [toRoman]: https://github.com/nodef/extra-number/wiki/toRoman
 [fromScientific]: https://github.com/nodef/extra-number/wiki/fromScientific
