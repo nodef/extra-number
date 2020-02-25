@@ -53,6 +53,8 @@ number.toScientific(695700000);
 
 [![nodef](https://merferry.glitch.me/card/extra-number.svg)](https://nodef.github.io)
 
+> Browserified, minified version of this package is [extra-number.min].
+
 [is]: https://github.com/nodef/extra-number/wiki/is
 [isPrime]: https://github.com/nodef/extra-number/wiki/isPrime
 [compare]: https://github.com/nodef/extra-number/wiki/compare
@@ -66,3 +68,4 @@ number.toScientific(695700000);
 [fromScientific]: https://github.com/nodef/extra-number/wiki/fromScientific
 [toScientific]: https://github.com/nodef/extra-number/wiki/toScientific
 [Number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+[extra-number.min]: https://www.npmjs.com/package/extra-number.min
