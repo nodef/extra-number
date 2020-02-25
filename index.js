@@ -284,6 +284,10 @@ function number(txt) {
 number.process = process;
 const T9 = token.type;
 
+/**
+ * Converts number in words to number.
+ * @param {string} txt number in words
+ */
 function fromWords(txt) {
   var [tok] = number.process(token.parse(txt));
   return tok && tok.type&T9.NUMBER===T9.NUMBER? tok.value:NaN;
