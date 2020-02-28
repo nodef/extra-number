@@ -128,6 +128,7 @@ function scatterPackage(pth, o) {
   o.description = o.description||readmeHeading(readme);
   scatterReadme(readme, o);
   fs.copyFileSync(pth, index);
+  cp.execSync(`cp -r ${src}/node_modules ${tmp}`);
   scatterJs(index, o);
   o.requires = packageRequires(pth);
   fs.copyFileSync(json_src, json);
