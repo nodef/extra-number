@@ -1,0 +1,2 @@
+const VALUES = [0, 1, 5, 10, 50, 100];
+module.exports = VALUES;
