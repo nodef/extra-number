@@ -49,6 +49,7 @@ number.toScientific(695700000);
 - fromRoman with decimal
 - toWords(opt=ordinal/cardinal)
 - toOrdinal
+- compare with precision?
 
 <br>
 <br>
