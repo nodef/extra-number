@@ -32,6 +32,8 @@ number.toScientific(695700000);
 | [isPrime]              | Checks if a number is prime.
 | [compare]              | Compares 2 numbers.
 | [round]                | Rounds number to specific precision.
+| [ceil]                 | Rounds up number to specific precision.
+| [floor]                | Rounds down number to specific precision.
 | [aliquotSum]           | Gives sum of all proper divisors of n.
 | [properDivisors]       | Gives a list of numbers that n is divisible by, except itself.
 | [significantDigits]    | Counts the number of significant digits of a number.
@@ -59,6 +61,8 @@ number.toScientific(695700000);
 [isPrime]: https://github.com/nodef/extra-number/wiki/isPrime
 [compare]: https://github.com/nodef/extra-number/wiki/compare
 [round]: https://github.com/nodef/extra-number/wiki/round
+[ceil]: https://github.com/nodef/extra-number/wiki/ceil
+[floor]: https://github.com/nodef/extra-number/wiki/floor
 [aliquotSum]: https://github.com/nodef/extra-number/wiki/aliquotSum
 [properDivisors]: https://github.com/nodef/extra-number/wiki/properDivisors
 [significantDigits]: https://github.com/nodef/extra-number/wiki/significantDigits
