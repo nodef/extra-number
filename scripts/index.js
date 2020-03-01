@@ -1,6 +1,8 @@
 exports.is = require('./is');
 exports.isPrime = require('./isPrime');
 exports.compare = require('./compare');
+exports.ceil = require('./ceil');
+exports.floor = require('./floor');
 exports.round = require('./round');
 exports.aliquotSum = require('./aliquotSum');
 exports.properDivisors = require('./properDivisors');

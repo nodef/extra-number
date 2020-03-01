@@ -30,6 +30,22 @@ function compare(n1, n2) {
   return n1===n2? 0:(n1<n2? -1:1);
 }
 /**
+ * Rounds up number to specific precision.
+ * @param {number} n a number
+ * @param {number} pre to precision (1)
+ */
+function ceil(n, pre=1) {
+  return Math.ceil(n/pre)*pre;
+}
+/**
+ * Rounds down number to specific precision.
+ * @param {number} n a number
+ * @param {number} pre to precision (1)
+ */
+function floor(n, pre=1) {
+  return Math.floor(n/pre)*pre;
+}
+/**
  * Rounds number to specific precision.
  * @param {number} n a number
  * @param {number} pre to precision (1e-12)
@@ -121,7 +137,7 @@ function toString(tkns) {
 token.type = TYPE;
 token.parse = parse;
 token.toString = toString;
-const T8 = token.type;
+const T10 = token.type;
 
 const DECIMAL = new Set(['dot', 'point', 'decimal']);
 const SPECIAL = new Map([
@@ -258,22 +274,22 @@ function process(tkns) {
   var z = [], s = [], pre = NaN;
   var val = false, brk = null;
   for(var tkn of tkns) {
-    var txt = (tkn.type&0xF0)===T8.TEXT? tkn.value.replace(/[\s,]/g, '').toLowerCase():null;
+    var txt = (tkn.type&0xF0)===T10.TEXT? tkn.value.replace(/[\s,]/g, '').toLowerCase():null;
     if(val && (txt==null || brk!=null)) {
-      z.push(token(T8.CARDINAL, stateValue(s, pre)));
+      z.push(token(T10.CARDINAL, stateValue(s, pre)));
       s.length = 0; pre = NaN, val = false;
     }
     if(brk!=null && brk.type>0) z.push(brk);
     brk = null;
     if(txt==null) { z.push(tkn); continue; }
-    if(SPECIAL.has(txt)) { brk = token(T8.CARDINAL, SPECIAL.get(txt)); continue; }
+    if(SPECIAL.has(txt)) { brk = token(T10.CARDINAL, SPECIAL.get(txt)); continue; }
     if(ORDINAL.has(txt)) { stateAddOrdinal(s, ORDINAL.get(txt)); val = true; brk = token(); continue; }
     if(DECIMAL.has(txt)) { pre = stateValue(s); s.length = 0; continue; }
     if(CARDINAL.has(txt)) { stateAdd(s, CARDINAL.get(txt)); val = true; continue; }
     if(isNaN(txt)) { brk = tkn; continue; }
-    brk = token(T8.CARDINAL, parseFloat(txt));
+    brk = token(T10.CARDINAL, parseFloat(txt));
   }
-  if(val) z.push(token(T8.CARDINAL, stateValue(s, pre)));
+  if(val) z.push(token(T10.CARDINAL, stateValue(s, pre)));
   if(brk!=null && brk.type>0) z.push(brk);
   return z;
 }
@@ -282,7 +298,7 @@ function number(txt) {
   return token.toString(process(token.parse(txt)));
 }
 number.process = process;
-const T9 = token.type;
+const T11 = token.type;
 
 /**
  * Converts number in words to number.
@@ -290,7 +306,7 @@ const T9 = token.type;
  */
 function fromWords(txt) {
   var [tok] = number.process(token.parse(txt));
-  return tok && tok.type&T9.NUMBER===T9.NUMBER? tok.value:NaN;
+  return tok && tok.type&T11.NUMBER===T11.NUMBER? tok.value:NaN;
 }
 const SYM = [' ', 'I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
 const VAL = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
@@ -310,8 +326,8 @@ function fromRoman(txt) {
   }
   return neg? -z:z;
 }
-const SYM11 = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
-const VAL11 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+const SYM13 = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
+const VAL13 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
 /**
  * Converts number to roman numerals.
@@ -320,8 +336,8 @@ const VAL11 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
  */
 function toRoman(n) {
   var N = Math.abs(n), z = n<0? '-':'';
-  for(var i=SYM11.length-1; i>=0; i--)
-    while(N>=VAL11[i]) { N -= VAL11[i]; z += SYM11[i]; }
+  for(var i=SYM13.length-1; i>=0; i--)
+    while(N>=VAL13[i]) { N -= VAL13[i]; z += SYM13[i]; }
   return z;
 }
 const FSUP = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵝᵞᵟᶿᶥᵠᵡᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᶦᶫᶰᶸᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻ';
@@ -350,11 +366,11 @@ function toBaseLine(str, sup, sub) {
 function fromScientific(txt) {
   return parseFloat(toBaseLine(txt.replace(/\s+/g, '').replace(/[Xx×*]10\^?/g, 'e')));
 }
-const SYM14 = '        ⁽⁾ ⁺ ⁻  ⁰¹²³⁴⁵⁶⁷⁸⁹   ⁼   ᴬᴮ ᴰᴱ ᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾ ᴿ ᵀᵁ ᵂ         ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ ʳˢᵗᵘᵛʷˣʸᶻ     ';
+const SYM16 = '        ⁽⁾ ⁺ ⁻  ⁰¹²³⁴⁵⁶⁷⁸⁹   ⁼   ᴬᴮ ᴰᴱ ᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾ ᴿ ᵀᵁ ᵂ         ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ ʳˢᵗᵘᵛʷˣʸᶻ     ';
 function toSuperscript(str) {
   var z = '';
   for(var c of str) {
-    var d = SYM14[c.charCodeAt()-32]||' ';
+    var d = SYM16[c.charCodeAt()-32]||' ';
     z += d===' '? c:d;
   }
   return z;
@@ -371,6 +387,8 @@ function toScientific(n) {
 exports.is = is;
 exports.isPrime = isPrime;
 exports.compare = compare;
+exports.ceil = ceil;
+exports.floor = floor;
 exports.round = round;
 exports.aliquotSum = aliquotSum;
 exports.properDivisors = properDivisors;
