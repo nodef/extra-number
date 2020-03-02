@@ -30,22 +30,6 @@ function compare(n1, n2) {
   return n1===n2? 0:(n1<n2? -1:1);
 }
 /**
- * Rounds up number to specific precision.
- * @param {number} n a number
- * @param {number} pre to precision (1)
- */
-function ceil(n, pre=1) {
-  return Math.ceil(n/pre)*pre;
-}
-/**
- * Rounds down number to specific precision.
- * @param {number} n a number
- * @param {number} pre to precision (1)
- */
-function floor(n, pre=1) {
-  return Math.floor(n/pre)*pre;
-}
-/**
  * Rounds number to specific precision.
  * @param {number} n a number
  * @param {number} pre to precision (1e-12)
@@ -53,6 +37,22 @@ function floor(n, pre=1) {
 function round(n, pre=1e-12) {
   n = Math.round(n/pre)*pre;
   return Math.round(n*1e+12)/1e+12;
+}
+/**
+ * Rounds up number to specific precision.
+ * @param {number} n a number
+ * @param {number} pre to precision
+ */
+function ceil(n, pre) {
+  return Math.ceil(n/pre)*pre;
+}
+/**
+ * Rounds down number to specific precision.
+ * @param {number} n a number
+ * @param {number} pre to precision
+ */
+function floor(n, pre) {
+  return Math.floor(n/pre)*pre;
 }
 /**
  * Gives sum of all proper divisors of n.
@@ -387,9 +387,9 @@ function toScientific(n) {
 exports.is = is;
 exports.isPrime = isPrime;
 exports.compare = compare;
+exports.round = round;
 exports.ceil = ceil;
 exports.floor = floor;
-exports.round = round;
 exports.aliquotSum = aliquotSum;
 exports.properDivisors = properDivisors;
 exports.significantDigits = significantDigits;
