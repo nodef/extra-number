@@ -34,6 +34,9 @@ number.toScientific(695700000);
 | [round]                | Rounds number to specific precision.
 | [ceil]                 | Rounds up number to specific precision.
 | [floor]                | Rounds down number to specific precision.
+| [lerp]                 | Gives a number based on weight, within given range.
+| [clamp]                | Limits a number within given range.
+| [map]                  | Converts a number from one range to another.
 | [aliquotSum]           | Gives sum of all proper divisors of n.
 | [properDivisors]       | Gives a list of numbers that n is divisible by, except itself.
 | [significantDigits]    | Counts the number of significant digits of a number.
@@ -49,7 +52,15 @@ number.toScientific(695700000);
 - fromRoman with decimal
 - toWords(opt=ordinal/cardinal)
 - toOrdinal
-- compare with precision?
+- number.compare(pre)
+- math.log(n,base)
+- math.factorial(n)
+- math.perm(n, k)
+- math.dist()
+- math.degrees()
+- math.radians()
+- math.tau
+- math: separate statistics?
 
 <br>
 <br>
@@ -64,6 +75,9 @@ number.toScientific(695700000);
 [round]: https://github.com/nodef/extra-number/wiki/round
 [ceil]: https://github.com/nodef/extra-number/wiki/ceil
 [floor]: https://github.com/nodef/extra-number/wiki/floor
+[lerp]: https://github.com/nodef/extra-number/wiki/lerp
+[clamp]: https://github.com/nodef/extra-number/wiki/clamp
+[map]: https://github.com/nodef/extra-number/wiki/map
 [aliquotSum]: https://github.com/nodef/extra-number/wiki/aliquotSum
 [properDivisors]: https://github.com/nodef/extra-number/wiki/properDivisors
 [significantDigits]: https://github.com/nodef/extra-number/wiki/significantDigits

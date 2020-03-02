@@ -55,6 +55,35 @@ function floor(n, pre) {
   return Math.floor(n/pre)*pre;
 }
 /**
+ * Gives a number based on weight, within given range.
+ * @param {number} s0 start of range
+ * @param {number} s1 end of range
+ * @param {number} w weight (0->1)
+ */
+function lerp(s0, s1, w) {
+  return s0+(s1-s0)*w;
+}
+/**
+ * Limits a number within given range.
+ * @param {number} n a number
+ * @param {number} t0 start of target range
+ * @param {number} t1 end of target range
+ */
+function clamp(n, t0, t1) {
+  return Math.min(Math.max(n, t0), t1);
+}
+/**
+ * Converts a number from one range to another.
+ * @param {number} n a number
+ * @param {number} s0 start of source range
+ * @param {number} s1 end of source range
+ * @param {number} t0 start of target range
+ * @param {number} t1 end of target range
+ */
+function map(n, s0, s1, t0, t1) {
+  return t0+(n-s0)*(t1-t0)/(s1-s0);
+}
+/**
  * Gives sum of all proper divisors of n.
  * @param {number} n a number
  */
@@ -137,7 +166,7 @@ function toString(tkns) {
 token.type = TYPE;
 token.parse = parse;
 token.toString = toString;
-const T10 = token.type;
+const T13 = token.type;
 
 const DECIMAL = new Set(['dot', 'point', 'decimal']);
 const SPECIAL = new Map([
@@ -274,22 +303,22 @@ function process(tkns) {
   var z = [], s = [], pre = NaN;
   var val = false, brk = null;
   for(var tkn of tkns) {
-    var txt = (tkn.type&0xF0)===T10.TEXT? tkn.value.replace(/[\s,]/g, '').toLowerCase():null;
+    var txt = (tkn.type&0xF0)===T13.TEXT? tkn.value.replace(/[\s,]/g, '').toLowerCase():null;
     if(val && (txt==null || brk!=null)) {
-      z.push(token(T10.CARDINAL, stateValue(s, pre)));
+      z.push(token(T13.CARDINAL, stateValue(s, pre)));
       s.length = 0; pre = NaN, val = false;
     }
     if(brk!=null && brk.type>0) z.push(brk);
     brk = null;
     if(txt==null) { z.push(tkn); continue; }
-    if(SPECIAL.has(txt)) { brk = token(T10.CARDINAL, SPECIAL.get(txt)); continue; }
+    if(SPECIAL.has(txt)) { brk = token(T13.CARDINAL, SPECIAL.get(txt)); continue; }
     if(ORDINAL.has(txt)) { stateAddOrdinal(s, ORDINAL.get(txt)); val = true; brk = token(); continue; }
     if(DECIMAL.has(txt)) { pre = stateValue(s); s.length = 0; continue; }
     if(CARDINAL.has(txt)) { stateAdd(s, CARDINAL.get(txt)); val = true; continue; }
     if(isNaN(txt)) { brk = tkn; continue; }
-    brk = token(T10.CARDINAL, parseFloat(txt));
+    brk = token(T13.CARDINAL, parseFloat(txt));
   }
-  if(val) z.push(token(T10.CARDINAL, stateValue(s, pre)));
+  if(val) z.push(token(T13.CARDINAL, stateValue(s, pre)));
   if(brk!=null && brk.type>0) z.push(brk);
   return z;
 }
@@ -298,7 +327,7 @@ function number(txt) {
   return token.toString(process(token.parse(txt)));
 }
 number.process = process;
-const T11 = token.type;
+const T14 = token.type;
 
 /**
  * Converts number in words to number.
@@ -306,7 +335,7 @@ const T11 = token.type;
  */
 function fromWords(txt) {
   var [tok] = number.process(token.parse(txt));
-  return tok && tok.type&T11.NUMBER===T11.NUMBER? tok.value:NaN;
+  return tok && tok.type&T14.NUMBER===T14.NUMBER? tok.value:NaN;
 }
 const SYM = [' ', 'I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
 const VAL = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
@@ -326,8 +355,8 @@ function fromRoman(txt) {
   }
   return neg? -z:z;
 }
-const SYM13 = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
-const VAL13 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+const SYM16 = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
+const VAL16 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
 /**
  * Converts number to roman numerals.
@@ -336,8 +365,8 @@ const VAL13 = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
  */
 function toRoman(n) {
   var N = Math.abs(n), z = n<0? '-':'';
-  for(var i=SYM13.length-1; i>=0; i--)
-    while(N>=VAL13[i]) { N -= VAL13[i]; z += SYM13[i]; }
+  for(var i=SYM16.length-1; i>=0; i--)
+    while(N>=VAL16[i]) { N -= VAL16[i]; z += SYM16[i]; }
   return z;
 }
 const FSUP = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵝᵞᵟᶿᶥᵠᵡᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᶦᶫᶰᶸᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻ';
@@ -366,11 +395,11 @@ function toBaseLine(str, sup, sub) {
 function fromScientific(txt) {
   return parseFloat(toBaseLine(txt.replace(/\s+/g, '').replace(/[Xx×*]10\^?/g, 'e')));
 }
-const SYM16 = '        ⁽⁾ ⁺ ⁻  ⁰¹²³⁴⁵⁶⁷⁸⁹   ⁼   ᴬᴮ ᴰᴱ ᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾ ᴿ ᵀᵁ ᵂ         ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ ʳˢᵗᵘᵛʷˣʸᶻ     ';
+const SYM19 = '        ⁽⁾ ⁺ ⁻  ⁰¹²³⁴⁵⁶⁷⁸⁹   ⁼   ᴬᴮ ᴰᴱ ᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾ ᴿ ᵀᵁ ᵂ         ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ ʳˢᵗᵘᵛʷˣʸᶻ     ';
 function toSuperscript(str) {
   var z = '';
   for(var c of str) {
-    var d = SYM16[c.charCodeAt()-32]||' ';
+    var d = SYM19[c.charCodeAt()-32]||' ';
     z += d===' '? c:d;
   }
   return z;
@@ -390,6 +419,9 @@ exports.compare = compare;
 exports.round = round;
 exports.ceil = ceil;
 exports.floor = floor;
+exports.lerp = lerp;
+exports.clamp = clamp;
+exports.map = map;
 exports.aliquotSum = aliquotSum;
 exports.properDivisors = properDivisors;
 exports.significantDigits = significantDigits;
