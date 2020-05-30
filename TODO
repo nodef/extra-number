@@ -4,3 +4,11 @@ https://docs.google.com/spreadsheets/d/1IFR_KTwm_wGk-XOYJtax200hd-BkB7fy2Jt9vDeJ
 - https://www.npmjs.com/package/float-regex
 - https://www.npmjs.com/package/percentage-regex
 - https://www.npmjs.com/package/is-hex
+
+
+npm-complex	number	Module for elementary operations on the complex plane
+high-precision-four-fundamental-rules	number	a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.
+nmbrs	number	An npm module to prettify numbers
+prime-nummers	number	An multi-language NPM package to use prime numbers. Een meer-talige NPM package om primaire nummers te gebruiken.
+npm-oddeven	number	Method that allows you to play even or odd
+ordinal-spanish	number	Spanish ordinal numbers following a numeral.
