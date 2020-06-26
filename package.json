@@ -1,6 +1,6 @@
 {
   "name": "extra-number",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "A number is a mathematical object used to count, measure, and label.",
   "main": "index.js",
   "scripts": {

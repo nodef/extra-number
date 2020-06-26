@@ -1,4 +1,5 @@
 A number is a mathematical object used to count, measure, and label.
+
 [Number] type is double-precision 64-bit binary format IEEE 754 value.
 Includes notation conversion functions, as well as utilities.
 
