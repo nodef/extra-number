@@ -1,5 +1,5 @@
 /**
- * Sums all proper divisors.
+ * Sums all proper divisors, of number.
  * @param x a number
  */
 function aliquotSum(x: number): number {
