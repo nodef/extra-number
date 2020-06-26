@@ -3,10 +3,10 @@ const VAL = [NaN, 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
 /**
  * Converts roman numerals to number.
- * @param {string} txt roman numerals
- * @returns {number} eg. XCV -> 95
+ * @param txt roman numerals
+ * @returns eg. XCV -> 95
  */
-function fromRoman(txt) {
+function fromRoman(txt: string): number {
   var s = SYM.length-1, z = 0;
   var neg = txt.search(/^\s*-/)>=0;
   txt = txt.replace(/\W/g, '').toUpperCase();
@@ -16,4 +16,4 @@ function fromRoman(txt) {
   }
   return neg? -z:z;
 }
-module.exports = fromRoman;
+export default fromRoman;
