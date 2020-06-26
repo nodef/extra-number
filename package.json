@@ -1,11 +1,21 @@
 {
   "name": "extra-number",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "A number is a mathematical object used to count, measure, and label.",
   "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    "require": "./index.js",
+    "import": "./index.mjs"
+  },
   "scripts": {
+    "einit": "ebuild init",
+    "ecode": "ebuild update --docs false",
+    "eupdate": "ebuild update",
+    "escatter": "ebuild scatter",
     "test": "exit"
   },
+  "runkitExampleFilename": "example.js",
   "keywords": [
     "extra",
     "number"
