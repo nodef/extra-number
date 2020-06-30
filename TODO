@@ -12,3 +12,10 @@ nmbrs	number	An npm module to prettify numbers
 prime-nummers	number	An multi-language NPM package to use prime numbers. Een meer-talige NPM package om primaire nummers te gebruiken.
 npm-oddeven	number	Method that allows you to play even or odd
 ordinal-spanish	number	Spanish ordinal numbers following a numeral.
+
+
+RANDOM
+http://pracrand.sourceforge.net
+http://vigna.di.unimi.it/ftp/papers/ScrambledLinear.pdf
+https://synesenom.github.io/ran/#core.seed
+https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript/47593316#47593316
