@@ -1,6 +1,6 @@
 {
   "name": "extra-number",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "A number is a mathematical object used to count, measure, and label.",
   "main": "index.js",
   "module": "index.mjs",
@@ -33,6 +33,6 @@
   "devDependencies": {
     "@extra-string/to-baseline": "^1.1.3",
     "@extra-string/to-superscript": "^1.1.3",
-    "extra-build": "^1.0.188"
+    "extra-build": "^1.1.27"
   }
 }

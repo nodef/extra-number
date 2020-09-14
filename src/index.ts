@@ -1,0 +1,16 @@
+export {default as aliquotSum} from './aliquotSum';
+export {default as ceil} from './ceil';
+export {default as clamp} from './clamp';
+export {default as compare} from './compare';
+export {default as floor} from './floor';
+export {default as fromRoman} from './fromRoman';
+export {default as fromScientific} from './fromScientific';
+export {default as is} from './is';
+export {default as isPrime} from './isPrime';
+export {default as lerp} from './lerp';
+export {default as map} from './map';
+export {default as properDivisors} from './properDivisors';
+export {default as round} from './round';
+export {default as significantDigits} from './significantDigits';
+export {default as toRoman} from './toRoman';
+export {default as toScientific} from './toScientific';
