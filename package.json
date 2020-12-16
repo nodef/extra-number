@@ -1,6 +1,6 @@
 {
   "name": "extra-number",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "description": "A number is a mathematical object used to count, measure, and label.",
   "main": "index.js",
   "module": "index.mjs",
@@ -18,7 +18,23 @@
   "runkitExampleFilename": "example.js",
   "keywords": [
     "extra",
-    "number"
+    "number",
+    "aliquotSum",
+    "ceil",
+    "clamp",
+    "compare",
+    "floor",
+    "fromRoman",
+    "fromScientific",
+    "is",
+    "isPrime",
+    "lerp",
+    "map",
+    "properDivisors",
+    "round",
+    "significantDigits",
+    "toRoman",
+    "toScientific"
   ],
   "repository": {
     "type": "git",
@@ -33,6 +49,6 @@
   "devDependencies": {
     "@extra-string/to-baseline": "^1.1.3",
     "@extra-string/to-superscript": "^1.1.3",
-    "extra-build": "^1.1.27"
+    "extra-build": "^1.1.28"
   }
 }
