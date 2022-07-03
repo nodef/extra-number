@@ -19,3 +19,20 @@ http://pracrand.sourceforge.net
 http://vigna.di.unimi.it/ftp/papers/ScrambledLinear.pdf
 https://synesenom.github.io/ran/#core.seed
 https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript/47593316#47593316
+
+
+### help needed
+
+- fromWords with plural
+- fromRoman with decimal
+- toWords(opt=ordinal/cardinal)
+- toOrdinal
+- number.compare(pre)
+- math.log(n,base)
+- math.factorial(n)
+- math.perm(n, k)
+- math.dist()
+- math.degrees()
+- math.radians()
+- math.tau
+- math: separate statistics?

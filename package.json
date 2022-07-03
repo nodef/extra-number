@@ -1,7 +1,8 @@
 {
   "name": "extra-number",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A number is a mathematical object used to count, measure, and label.",
+  "sideEffects": false,
   "main": "index.js",
   "module": "index.mjs",
   "exports": {
@@ -9,33 +10,16 @@
     "import": "./index.mjs"
   },
   "scripts": {
-    "einit": "ebuild init",
-    "ecode": "ebuild update --docs false",
-    "eupdate": "ebuild update",
-    "escatter": "ebuild scatter",
-    "test": "exit"
+    "test": "exit",
+    "build": "node ./build",
+    "deploy": "node ./build deploy"
   },
-  "runkitExampleFilename": "example.js",
   "keywords": [
     "extra",
-    "number",
-    "aliquotSum",
-    "ceil",
-    "clamp",
-    "compare",
-    "floor",
-    "fromRoman",
-    "fromScientific",
-    "is",
-    "isPrime",
-    "lerp",
-    "map",
-    "properDivisors",
-    "round",
-    "significantDigits",
-    "toRoman",
-    "toScientific"
+    "number"
   ],
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nodef/extra-number.git"
@@ -44,12 +28,12 @@
     "url": "https://github.com/nodef/extra-number/issues"
   },
   "homepage": "https://github.com/nodef/extra-number#readme",
-  "author": "wolfram77@gmail.com",
-  "license": "MIT",
   "devDependencies": {
-    "@extra-string/to-baseline": "^1.1.3",
-    "@extra-string/to-superscript": "^1.1.3",
-    "extra-build": "^1.1.28",
-    "extra-math": "^1.3.20"
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "extra-build": "^2.1.31",
+    "extra-math": "^1.3.20",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-dts": "^4.2.2"
   }
 }
