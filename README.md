@@ -18,10 +18,11 @@ number.round(9.1357, 0.05);
 number.significantDigits(0.0034);
 // 2
 
-number.fromRoman('DCXLIX');
+// TOFIX:
+// number.fromRoman('DCXLIX');
 // 649
 
-number.toScientific(695700000);
+// number.toScientific(695700000);
 // '6.957×10⁸' (radius of Sun in m)
 ```
 
