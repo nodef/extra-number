@@ -377,6 +377,33 @@ export function multinomial(...ks: number[]): number {
 
 
 
+// GEOMETRY
+// --------
+
+/**
+ * Convert radians to degrees.
+ * @param x radians
+ * @returns 2π → 360
+ */
+export function degrees(x: number): number {
+  return x*(180/Math.PI);
+}
+// - https://processing.org/reference/degrees_.html
+
+
+/**
+ * Convert degrees to radians.
+ * @param x degrees
+ * @returns 360 → 2π
+ */
+export function radians(x: number): number {
+  return x*(Math.PI/180);
+}
+// - https://processing.org/reference/radians_.html
+
+
+
+
 // STATISTICS
 // ----------
 
