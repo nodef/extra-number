@@ -464,17 +464,6 @@ export function product(...xs: number[]): number {
 
 
 /**
- * Find the average of numbers.
- * @param xs a list of numbers
- * @returns Σxᵢ/n | n = size(xs)
- */
-export function mean(...xs: number[]): number {
-  if (xs.length===0) return 0;
-  return sum(...xs)/xs.length;
-}
-
-
-/**
  * Find the value separating the higher and lower halves of numbers.
  * @param xs a list of numbers
  * @returns xₘ | sort(xs) = [..., xₘ, ...]
@@ -539,12 +528,81 @@ export function range(...xs: number[]): [number, number] {
  */
 export function variance(...xs: number[]): number {
   if (xs.length===0) return 0;
-  var m = mean(...xs), a = 0;
+  var m = arithmeticMean(...xs), a = 0;
   for (var x of xs)
     a += (x-m)**2;
   return a/xs.length;
 }
 // - https://en.wikipedia.org/wiki/Variance
+
+
+
+
+// MEAN (STATISTICS)
+// -----------------
+
+/**
+ * Find the average of numbers.
+ * @param xs a list of numbers
+ * @returns Σxᵢ/n | n = size(xs)
+ */
+export function arithmeticMean(...xs: number[]): number {
+  if (xs.length===0) return 0;
+  return sum(...xs)/xs.length;
+}
+export {arithmeticMean as mean};
+
+
+/**
+ * Find the geometric mean of numbers.
+ * @param xs a list of numbers
+ * @returns ⁿ√(∏xᵢ) | n = size(xs)
+ */
+ export function geometricMean(...xs: number[]): number {
+  var n = xs.length;
+  return root(product(...xs), n);
+}
+
+
+/**
+ * Find the harmonic mean of numbers.
+ * @param xs a list of numbers
+ * @returns n/Σ(1/xᵢ) | n = size(xs)
+ */
+export function harmonicMean(...xs: number[]): number {
+  var n = xs.length;
+  var p = product(...xs), q = 0;
+  for (var x of xs)
+    q += p/x;
+  return n*p/q;
+}
+
+
+/**
+ * Find the quadriatic mean of numbers.
+ * @param xs a list of numbers
+ * @returns √(Σxᵢ²)/n | n = size(xs)
+ */
+export function quadriaticMean(...xs: number[]): number {
+  var n = xs.length, a = 0;
+  for (var x of xs)
+    a += x*x;
+  return Math.sqrt(a/n);
+}
+export {quadriaticMean as rootMeanSquare};
+
+
+/**
+ * Find the cubic mean of numbers.
+ * @param xs a list of numbers
+ * @returns ³√(Σxᵢ³)/n | n = size(xs)
+ */
+export function cubicMean(...xs: number[]): number {
+  var n = xs.length, a = 0;
+  for (var x of xs)
+    a += x**3;
+  return Math.cbrt(a/n);
+}
 
 
 
