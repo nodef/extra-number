@@ -248,6 +248,64 @@ export function lcm(...xs: number[]): number {
 
 
 
+// ARRANGEMENTS
+// ------------
+
+/**
+ * Find the factorial of a number.
+ * @param n a number
+ * @param k denominator factorial [0]
+ * @returns P(n, k); k=0: n!, k>0: n!/k!
+ */
+export function factorial(n: number, k: number=0): number {
+  if (n<0) return 0;
+  for (var i=k+1, a=1; i<=n; i++)
+    a *= i;
+  return a;
+}
+// - https://github.com/alawatthe/MathLib/blob/master/src/Functn/functions/factorial.ts
+// - https://en.wikipedia.org/wiki/Permutation
+
+
+/**
+ * Find the number of ways to choose k elements from a set of n elements.
+ * @param n elements in source set
+ * @param k elements in choose set
+ * @returns C(n, k)
+ */
+export function binomial(n: number, k: number): number {
+  // 1. Generalization to negative integers
+  if (k<0 || k>Math.abs(n)) return 0;
+  if (n<0) return Math.pow(-1, k)*binomial(-n, k);
+  // 2. Take advantage of symmetry
+  k = k>n-k? n-k:k;
+  for (var a=1, i=1; i<=k; i++, n--)
+    a *= n/i;
+  return a;
+}
+// - https://github.com/alawatthe/MathLib/blob/master/src/Functn/functions/binomial.ts
+// - https://en.wikipedia.org/wiki/Binomial_coefficient
+
+
+/**
+ * Find the number of ways to put n objects in m bins (n=sum(kᵢ)).
+ * @param ks objects per bin (kᵢ)
+ * @returns n!/(k₁!k₂!...) | n=sum(kᵢ)
+ */
+export function multinomial(...ks: number[]): number {
+  var n = sum(...ks), a = 1;
+  for (var i=0, j=0, I=ks.length; i<I;) {
+    if (j<=0) j = ks[i++];
+    else a *= n--/j--;
+  }
+  return a;
+}
+// - https://en.wikipedia.org/wiki/Multinomial_distribution
+
+
+
+
+
 // FORMAT
 // ------
 
