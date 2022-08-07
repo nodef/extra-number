@@ -23,6 +23,7 @@ export function significantDigits(x: number): number {
   var a = x.toExponential();
   return a.replace(/e[\+\-0-9]*$/, "").replace( /^0\.?0*|\./, "").length;
 }
+// - https://stackoverflow.com/questions/22884720/what-is-the-fastest-way-to-count-the-number-of-significant-digits-of-a-number
 
 
 

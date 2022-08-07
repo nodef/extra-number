@@ -67,6 +67,105 @@ test("example1", () => {
 
 
 
+test("is", () => {
+  var a = is(3.14);
+  expect(a).toBe(true);
+  var a = is(NaN);
+  expect(a).toBe(true);  //  (an unexpressable number)
+  var a = is('3.14');
+  expect(a).toBe(false);
+  var a = is({'value': 3.14});
+  expect(a).toBe(false);
+  var a = is(null);
+  expect(a).toBe(false);
+});
+
+
+test("significantDigits", () => {
+  var a = significantDigits(0.0034);
+  expect(a).toBe(2);
+  var a = significantDigits(120.5e50);
+  expect(a).toBe(4);
+  var a = significantDigits(120.5e-50);
+  expect(a).toBe(4);
+});
+
+
+test("compare", () => {
+  var a = compare(10, 12);
+  expect(a).toBe(-1);
+  var a = compare(12, 12);
+  expect(a).toBe(0);
+  var a = compare(17, 12);
+  expect(a).toBe(1);
+});
+
+
+test("floor", () => {
+  var a = floor(9.161, 1);
+  expect(a).toBe(9);
+  var a = floor(9.161, 0.01);
+  expect(a).toBe(9.16);
+  var a = floor(9.1617, 0.05);
+  expect(a).toBe(9.15);
+});
+
+
+test("ceil", () => {
+  var a = ceil(9.121, 1);
+  expect(a).toBe(10);
+  var a = ceil(9.121, 0.01);
+  expect(a).toBe(9.13);
+  var a = ceil(9.1217, 0.05);
+  expect(a).toBe(9.15);
+});
+
+
+test("round", () => {
+  var a = round(9.121, 1);
+  expect(a).toBe(9);
+  var a = round(9.135, 0.01);
+  expect(a).toBe(9.14);
+  var a = round(9.1357, 0.05);
+  expect(a).toBe(9.15);
+  var a = round(0.1 + 0.2, 1e-12);
+  expect(a).toBe(0.3);
+});
+
+
+test("floorDiv", () => {
+  var a = floorDiv(15, 4);
+  expect(a).toBe(3);
+  var a = floorDiv(2, 2);
+  expect(a).toBe(1);
+  var a = floorDiv(-15, 4);
+  expect(a).toBe(-4);
+});
+// - https://www.learndatasci.com/solutions/python-double-slash-operator-floor-division/
+
+
+test("ceilDiv", () => {
+  var a = ceilDiv(15, 4);
+  expect(a).toBe(4);
+  var a = ceilDiv(2, 2);
+  expect(a).toBe(1);
+  var a = ceilDiv(-15, 4);
+  expect(a).toBe(-3);
+});
+// - https://www.learndatasci.com/solutions/python-double-slash-operator-floor-division/
+
+
+test("roundDiv", () => {
+  var a = roundDiv(15, 4);
+  expect(a).toBe(4);
+  var a = roundDiv(2, 2);
+  expect(a).toBe(1);
+  var a = roundDiv(-15, 4);
+  expect(a).toBe(-4);
+});
+// - https://www.learndatasci.com/solutions/python-double-slash-operator-floor-division/
+
+
 test("rem", () => {
   var a = rem(1, 10);
   expect(a).toBe(1);
@@ -137,6 +236,36 @@ test("lerp", () => {
 // - https://processing.org/reference/lerp_.html
 
 
+test("isPow", () => {
+  var a = isPow(32, 2);
+  expect(a).toBe(true);
+  var a = isPow(32, 4);
+  expect(a).toBe(false);
+  var a = isPow(64, 4);
+  expect(a).toBe(true);
+});
+
+
+test("prevPow", () => {
+  var a = prevPow(35, 2);
+  expect(a).toBe(32);
+  var a = prevPow(35, 4);
+  expect(a).toBe(16);
+  var a = prevPow(35, 3);
+  expect(a).toBe(27);
+});
+
+
+test("nextPow", () => {
+  var a = nextPow(29, 2);
+  expect(a).toBe(32);
+  var a = nextPow(29, 4);
+  expect(a).toBe(64);
+  var a = nextPow(29, 3);
+  expect(a).toBe(81);
+});
+
+
 test("root", () => {
   var a = root(25, 2);
   expect(a).toBe(5);
@@ -157,6 +286,44 @@ test("log", () => {
   expect(a).toBe(6);
 });
 // - https://en.wikipedia.org/wiki/Logarithm
+
+
+test("properDivisors", () => {
+  var a = properDivisors(6);
+  expect(a).toStrictEqual([1, 2, 3]);
+  var a = properDivisors(1);
+  expect(a).toStrictEqual([]);
+  var a = properDivisors(0);
+  expect(a).toStrictEqual([]);
+  var a = properDivisors(-24);
+  expect(a).toStrictEqual([1, 2, 3, 4, 6, 8, 12]);
+});
+
+
+test("aliquotSum", () => {
+  var a = aliquotSum(6);
+  expect(a).toBe(6);  // (1+2+3)
+  var a = aliquotSum(1);
+  expect(a).toBe(0);
+  var a = aliquotSum(0);
+  expect(a).toBe(0);
+  var a = aliquotSum(-24);
+  expect(a).toBe(36);  // (1+2+3+4+6+8+12)
+});
+
+
+test("isPrime", () => {
+  var a = isPrime(7);
+  expect(a).toBe(true);
+  var a = isPrime(53);
+  expect(a).toBe(true);
+  var a = isPrime(4);
+  expect(a).toBe(false);
+  var a = isPrime(1);
+  expect(a).toBe(false);
+  var a = isPrime(0);
+  expect(a).toBe(false);
+});
 
 
 test("gcd", () => {
@@ -278,11 +445,11 @@ test("modes", () => {
 
 test("range", () => {
   var a = range(1, 7);
-  expect(a).toBe(6);
+  expect(a).toStrictEqual([1, 7]);
   var a = range(1, 7, 6);
-  expect(a).toBe(6);
+  expect(a).toStrictEqual([1, 7]);
   var a = range(1, 7, 8, 6);
-  expect(a).toBe(7);
+  expect(a).toStrictEqual([1, 8]);
 });
 
 
@@ -302,5 +469,45 @@ test("arithmeticMean", () => {
   var a = arithmeticMean(1, 2, 3);
   expect(a).toBe(2);
   var a = arithmeticMean(1, 2, 3, 4);
+  expect(a).toBe(2.5);
+});
+
+
+test("geometricMean", () => {
+  var a = geometricMean(1, 2);
+  expect(a).toBe(1.5);
+  var a = geometricMean(1, 2, 3);
+  expect(a).toBe(2);
+  var a = geometricMean(1, 2, 3, 4);
+  expect(a).toBe(2.5);
+});
+
+
+test("harmonicMean", () => {
+  var a = harmonicMean(1, 2);
+  expect(a).toBe(1.5);
+  var a = harmonicMean(1, 2, 3);
+  expect(a).toBe(2);
+  var a = harmonicMean(1, 2, 3, 4);
+  expect(a).toBe(2.5);
+});
+
+
+test("quadriaticMean", () => {
+  var a = quadriaticMean(1, 2);
+  expect(a).toBe(1.5);
+  var a = quadriaticMean(1, 2, 3);
+  expect(a).toBe(2);
+  var a = quadriaticMean(1, 2, 3, 4);
+  expect(a).toBe(2.5);
+});
+
+
+test("cubicMean", () => {
+  var a = cubicMean(1, 2);
+  expect(a).toBe(1.5);
+  var a = cubicMean(1, 2, 3);
+  expect(a).toBe(2);
+  var a = cubicMean(1, 2, 3, 4);
   expect(a).toBe(2.5);
 });
