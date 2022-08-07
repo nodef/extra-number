@@ -133,6 +133,10 @@ number.significantDigits(0.0034);
 
 
 [![](https://img.youtube.com/vi/r0aKV3HqDzA/maxresdefault.jpg)](https://www.youtube.com/watch?v=r0aKV3HqDzA)<br>
+[![DOI](https://zenodo.org/badge/133202640.svg)](https://zenodo.org/badge/latestdoi/133202640)
+[![Coverage Status](https://coveralls.io/repos/github/nodef/extra-number/badge.svg?branch=master)](https://coveralls.io/github/nodef/extra-number?branch=master)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4acd74bb853361d9903f/test_coverage)](https://codeclimate.com/github/nodef/extra-number/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4acd74bb853361d9903f/maintainability)](https://codeclimate.com/github/nodef/extra-number/maintainability)
 
 
 [is]: https://nodef.github.io/extra-number/functions/is.html
