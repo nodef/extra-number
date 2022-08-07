@@ -78,6 +78,44 @@ export function round(x: number, pre: number=1): number {
 
 
 
+// ROUNDED DIVISION
+// ----------------
+
+/**
+ * Perform floor-divison of two numbers.
+ * @param x divisor
+ * @param y dividend
+ * @returns ⌊x/y⌋
+ */
+export function floorDiv(x: number, y: number): number {
+  return Math.floor(x/y);
+}
+
+
+/**
+ * Perform ceiling-divison of two numbers.
+ * @param x divisor
+ * @param y dividend
+ * @returns ⌈x/y⌉
+ */
+export function ceilDiv(x: number, y: number): number {
+  return Math.ceil(x/y);
+}
+
+
+/**
+ * Perform rounded-divison of two numbers.
+ * @param x divisor
+ * @param y dividend
+ * @returns [x/y]
+ */
+export function roundDiv(x: number, y: number): number {
+  return Math.round(x/y);
+}
+
+
+
+
 // DIVISORS
 // --------
 
