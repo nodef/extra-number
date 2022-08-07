@@ -1,12 +1,19 @@
-A number is a mathematical object used to count, measure, and label.<br>
+A collection of common number functions.<br>
 📦 [Node.js](https://www.npmjs.com/package/extra-number),
 🌐 [Web](https://www.npmjs.com/package/extra-number.web),
 📜 [Files](https://unpkg.com/extra-number/),
 📰 [Docs](https://nodef.github.io/extra-number/).
 📘 [Wiki](https://github.com/nodef/extra-number/wiki/).
 
-[Number] type is double-precision 64-bit binary format IEEE 754 value.
-Includes notation conversion functions, as well as utilities.
+A number is a mathematical object used to count, measure, and label. [Number]
+type is double-precision 64-bit binary format IEEE 754 value. This package
+includes common number functions related to querying *about* numbers,
+*comparing* numbers, *rounding* numbers, performing *rounded division*,
+performing *modulo* operations, *controlling range* of numbers, performing
+*arithmetic* operations, obtaining *divisors* of a number (and related
+operations), getting the number of possible *arrangements* of a set of objects,
+performing *geometry*-related calculations, performing basic *statistical*
+analysis, and finding various *statistical means*.
 
 This package is available in *Node.js* and *Web* formats. The web format
 is exposed as `extra_number` standalone variable and can be loaded from
@@ -125,7 +132,7 @@ number.significantDigits(0.0034);
 <br>
 
 
-[![](https://img.youtube.com/vi/4Yy0pPTrHlk/maxresdefault.jpg)](https://www.youtube.com/watch?v=4Yy0pPTrHlk)<br>
+[![](https://img.youtube.com/vi/r0aKV3HqDzA/maxresdefault.jpg)](https://www.youtube.com/watch?v=r0aKV3HqDzA)<br>
 
 
 [is]: https://nodef.github.io/extra-number/functions/is.html
