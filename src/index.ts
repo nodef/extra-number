@@ -116,6 +116,47 @@ export function roundDiv(x: number, y: number): number {
 
 
 
+// MODULO
+// ------
+
+/**
+ * Find the remainder of x/y with sign of x (truncated division).
+ * @param x dividend
+ * @param y divisor
+ * @returns trunc(x/y)
+ */
+export function rem(x: number, y: number): number {
+  return x % y;
+}
+// - https://en.wikipedia.org/wiki/Modulo_operation
+
+
+/**
+ * Find the remainder of x/y with sign of y (floored division).
+ * @param x dividend
+ * @param y divisor
+ * @returns floor(x/y)
+ */
+export function mod(x: number, y: number): number {
+  return x - y*Math.floor(x/y);
+}
+// - https://en.wikipedia.org/wiki/Modulo_operation
+
+
+/**
+ * Find the remainder of x/y with +ve sign (euclidean division).
+ * @param x dividend
+ * @param y divisor
+ * @returns n>0: floor(x/y), n<0: ceil(x/y)
+ */
+export function modp(x: number, y: number): number {
+  return x - Math.abs(y)*Math.floor(x/Math.abs(y));
+}
+// - https://en.wikipedia.org/wiki/Modulo_operation
+
+
+
+
 // DIVISORS
 // --------
 
