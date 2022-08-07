@@ -206,6 +206,48 @@ export function isPrime(x: number): boolean {
 
 
 
+// Find the greatest common divisor of a pair of numbers.
+function gcdPair(x: number, y: number): number {
+  while (y!==0) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+// - https://lemire.me/blog/2013/12/26/fastest-way-to-compute-the-greatest-common-divisor/
+// - https://en.wikipedia.org/wiki/Euclidean_algorithm
+
+/**
+ * Find the greatest common divisor of numbers.
+ * @param xs a list of numbers
+ * @returns gcd(x₁, x₂, ...)
+ */
+export function gcd(...xs: number[]): number {
+  var a = xs[0] || 1;
+  for(var i=1, I=xs.length; i<I; i++)
+    a = gcdPair(a, xs[i]);
+  return a;
+}
+export {gcd as hcf};
+
+
+/**
+ * Find the least common multiple of numbers.
+ * @param xs a list of numbers
+ * @returns lcm(x₁, x₂, ...)
+ */
+export function lcm(...xs: number[]): number {
+  var a = xs[0] || 1;
+  for (var i=1, I=xs.length; i<I; i++)
+      a = a*xs[i] / gcdPair(a, xs[i]);
+  return a;
+}
+// - https://en.wikipedia.org/wiki/Least_common_multiple
+
+
+
+
 // FORMAT
 // ------
 
