@@ -157,6 +157,78 @@ export function modp(x: number, y: number): number {
 
 
 
+// RANGE CONTROL
+// -------------
+
+/**
+ * Constrain a number within a minimum and a maximum value.
+ * @param x a number
+ * @param min minimum value
+ * @param max maximum value
+ * @returns x<min: min, x>max: max, x
+ */
+export function constrain(x: number, min: number, max: number): number {
+  return Math.min(Math.max(x, min), max);
+}
+export {constrain as clamp};
+// - https://processing.org/reference/constrain_.html
+// - https://www.npmjs.com/package/clamp
+// - https://en.cppreference.com/w/cpp/algorithm/clamp
+// - https://dlang.org/library/std/algorithm/comparison/clamp.html
+// - https://www.rdocumentation.org/packages/raster/versions/3.0-12/topics/clamp
+// - https://docs.microsoft.com/en-us/dotnet/api/system.math.clamp?view=netcore-3.1
+// - https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-clamp
+// - https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/clamp.xhtml
+// - https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
+// - https://en.wikipedia.org/wiki/Clamping_(graphics)
+
+
+/**
+ * Normalize a number from its current range into a value between 0 and 1.
+ * @param x a number
+ * @param r lower bound of current range
+ * @param R upper bound of current range
+ * @returns ∈ [0, 1]
+ */
+export function normalize(x: number, r: number, R: number): number {
+  return (x - r)/(R - r);
+}
+export {normalize as norm};
+// - https://processing.org/reference/norm_.html
+
+
+/**
+ * Re-map a number from one range to another.
+ * @param x a number
+ * @param r lower bound of current range
+ * @param R upper bound of current range
+ * @param t lower bound of target range
+ * @param T upper bound of target range
+ * @returns ∈ [ymin, ymax]
+ */
+export function remap(x: number, r: number, R: number, t: number, T: number): number {
+  return t + ((x - r)/(R - r)) * (T - t);
+}
+export {remap as map};
+// - https://processing.org/reference/map_.html
+
+
+/**
+ * Linearly interpolate a number between two numbers.
+ * @param x start number
+ * @param y stop number
+ * @param t interpolant ∈ [0, 1]
+ * @returns ∈ [x, y]
+ */
+export function lerp(x: number, y: number, t: number): number {
+  return x + t*(y - x);
+}
+// - https://processing.org/reference/lerp_.html
+// - https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
+
+
+
+
 // DIVISORS
 // --------
 
