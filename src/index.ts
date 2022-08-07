@@ -229,6 +229,36 @@ export function lerp(x: number, y: number, t: number): number {
 
 
 
+// ARITHMETIC
+// ----------
+
+/**
+ * Find the nth root of a number (ⁿ√).
+ * @param x a number
+ * @param n root
+ * @returns ⁿ√x
+ */
+export function root(x: number, n: number): number {
+  if ((n & 1)===0) return Math.pow(x, 1/n);
+  return   Math.sign(x) * Math.pow(Math.abs(x), 1/n);
+}
+// - https://github.com/alawatthe/MathLib/blob/master/src/Functn/functions/root.ts
+
+
+/**
+ * Find the logarithm of a number with a given base.
+ * @param x a number
+ * @param b logarithm base [e]
+ * @returns log_b (x)
+ */
+export function log(x: number, b: number=Math.E): number {
+  return Math.log(x)/Math.log(b);
+}
+// - https://en.wikipedia.org/wiki/Logarithm
+
+
+
+
 // DIVISORS
 // --------
 
