@@ -393,12 +393,12 @@ export function modes(...xs: number[]): number[] {
 
 
 /**
- * Find the difference between the largest and smallest values.
+ * Find the smallest and largest values.
  * @param xs a list of numbers
- * @returns max(xs) - min(xs)
+ * @returns [min(xs), max(xs)]
  */
-export function range(...xs: number[]): number {
-  return Math.max(...xs) - Math.min(...xs);
+export function range(...xs: number[]): [number, number] {
+  return [Math.min(...xs), Math.max(...xs)];
 }
 // - https://en.wikipedia.org/wiki/Range_(statistics)
 
