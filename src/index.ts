@@ -255,7 +255,7 @@ export function isPow(x: number, n: number): boolean {
  */
 export function prevPow(x: number, n: number): number {
   var p = log(Math.abs(x), Math.abs(n));
-  return Math.pow(Math.ceil(p-1), n);
+  return Math.pow(n, Math.ceil(p-1));
 }
 
 
@@ -267,7 +267,7 @@ export function prevPow(x: number, n: number): number {
  */
 export function nextPow(x: number, n: number): number {
   var p = log(Math.abs(x), Math.abs(n));
-  return Math.pow(Math.floor(p+1), n);
+  return Math.pow(n, Math.floor(p+1));
 }
 
 

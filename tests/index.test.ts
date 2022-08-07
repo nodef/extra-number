@@ -56,7 +56,7 @@ test("example1", () => {
   // → [1, 2, 3]
 
   var a = number.round(9.1357, 0.05);
-  expect(x).toBe(9.15);
+  expect(a).toBe(9.15);
   // → 9.15
 
   var a = number.significantDigits(0.0034);
@@ -475,39 +475,39 @@ test("arithmeticMean", () => {
 
 test("geometricMean", () => {
   var a = geometricMean(1, 2);
-  expect(a).toBe(1.5);
+  expect(a).toBe(Math.sqrt(2));
   var a = geometricMean(1, 2, 3);
-  expect(a).toBe(2);
+  expect(a).toBe(Math.cbrt(6));
   var a = geometricMean(1, 2, 3, 4);
-  expect(a).toBe(2.5);
+  expect(a).toBe(Math.pow(24, 1/4));
 });
 
 
 test("harmonicMean", () => {
   var a = harmonicMean(1, 2);
-  expect(a).toBe(1.5);
+  expect(a).toBe(4/3);
   var a = harmonicMean(1, 2, 3);
-  expect(a).toBe(2);
+  expect(a).toBe(18/11);
   var a = harmonicMean(1, 2, 3, 4);
-  expect(a).toBe(2.5);
+  expect(a).toBe(48/25);
 });
 
 
 test("quadriaticMean", () => {
   var a = quadriaticMean(1, 2);
-  expect(a).toBe(1.5);
+  expect(a).toBe(Math.sqrt(5/2));
   var a = quadriaticMean(1, 2, 3);
-  expect(a).toBe(2);
+  expect(a).toBe(Math.sqrt(14/3));
   var a = quadriaticMean(1, 2, 3, 4);
-  expect(a).toBe(2.5);
+  expect(a).toBe(Math.sqrt(30/4));
 });
 
 
 test("cubicMean", () => {
   var a = cubicMean(1, 2);
-  expect(a).toBe(1.5);
+  expect(a).toBe(Math.cbrt(9/2));
   var a = cubicMean(1, 2, 3);
-  expect(a).toBe(2);
+  expect(a).toBe(Math.cbrt(36/3));
   var a = cubicMean(1, 2, 3, 4);
-  expect(a).toBe(2.5);
+  expect(a).toBe(Math.cbrt(100/4));
 });
