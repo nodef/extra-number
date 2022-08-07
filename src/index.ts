@@ -233,6 +233,44 @@ export function lerp(x: number, y: number, t: number): number {
 // ----------
 
 /**
+ * Check if a number is a power-of-n.
+ * @param x a number
+ * @param n base
+ * @returns nⁱ = x? | i = +ve integer
+ */
+export function isPow(x: number, n: number): boolean {
+  if (n===0) return x===0;
+  var p = log(Math.abs(x), Math.abs(n));
+  if (p!==Math.floor(p)) return false;
+  return x<0? n<0 && (p & 1)===1 : n>0 || (p & 1)===0;
+}
+
+
+/**
+ * Get previous power-of-n of a number.
+ * @param x a number
+ * @param n base
+ * @returns 2ⁱ | 2ⁱ < x and 2ⁱ ≥ x/2
+ */
+export function prevPow(x: number, n: number): number {
+  var p = log(Math.abs(x), Math.abs(n));
+  return Math.pow(Math.ceil(p-1), n);
+}
+
+
+/**
+ * Find next power-of-n of a number.
+ * @param x a number
+ * @param n base
+ * @returns 2ⁱ | 2ⁱ > x and 2ⁱ ≤ 2x
+ */
+export function nextPow(x: number, n: number): number {
+  var p = log(Math.abs(x), Math.abs(n));
+  return Math.pow(Math.floor(p+1), n);
+}
+
+
+/**
  * Find the nth root of a number (ⁿ√).
  * @param x a number
  * @param n root
