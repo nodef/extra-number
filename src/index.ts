@@ -305,6 +305,120 @@ export function multinomial(...ks: number[]): number {
 
 
 
+// STATISTICS
+// ----------
+
+/**
+ * Find the sum of numbers (Σ).
+ * @param xs a list of numbers
+ * @returns Σxᵢ
+ */
+export function sum(...xs: number[]): number {
+  var a = 0;
+  for (var x of xs)
+    a += x;
+  return a;
+}
+
+
+/**
+ * Find the product of numbers (∏).
+ * @param xs a list of numbers
+ * @returns ∏xᵢ
+ */
+export function product(...xs: number[]): number {
+  var a = 1;
+  for (var x of xs)
+    a *= x;
+  return a;
+}
+
+
+/**
+ * Find the average of numbers.
+ * @param xs a list of numbers
+ * @returns Σxᵢ/n | n = size(xs)
+ */
+export function mean(...xs: number[]): number {
+  if (xs.length===0) return 0;
+  return sum(...xs)/xs.length;
+}
+
+
+/**
+ * Find the value separating the higher and lower halves of numbers.
+ * @param xs a list of numbers
+ * @returns xₘ | sort(xs) = [..., xₘ, ...]
+ */
+export function median(...xs: number[]): number {
+  if (xs.length===0) return 0;
+  xs.sort((a, b) => a-b);
+  var i = xs.length>>1;
+  if ((xs.length & 1)===1) return xs[i];
+  return (xs[i-1] + xs[i])/2;
+}
+// - https://stackoverflow.com/questions/45309447/calculating-median-javascript
+// - https://en.wikipedia.org/wiki/Median
+
+
+// Get the maximum number of times any number has repeated in a sorted array.
+function maxRepeat(xs: number[]): number {
+  var count = Math.min(xs.length, 1), max = count;
+  for (var i=1, I=xs.length; i<I; i++) {
+    if (xs[i-1]===xs[i]) count++;
+    else { max = Math.max(max, count); count = 1; }
+  }
+  return Math.max(max, count);
+}
+
+// Get the numbers which have been repeated atleast given number of times.
+function getRepeats(xs: number[], r: number): number[] {
+  var a: number[] = []; r--;
+  for (var i=0, I=xs.length-r; i<I; i++)
+    if (xs[i]===xs[i+r]) a.push(xs[i+=r]);
+  return a;
+}
+
+/**
+ * Find the values that appear most often.
+ * @param xs a list of numbers
+ * @returns [xₘ₁, xₘ₂, ...] | count(xₘᵢ) ≥ count(xᵢ) ∀ xᵢ ∈ xs
+ */
+export function modes(...xs: number[]): number[] {
+  xs.sort((a, b) => a-b);
+  var r = maxRepeat(xs);
+  return getRepeats(xs, r);
+}
+// - https://en.wikipedia.org/wiki/Mode_(statistics)
+
+
+/**
+ * Find the difference between the largest and smallest values.
+ * @param xs a list of numbers
+ * @returns max(xs) - min(xs)
+ */
+export function range(...xs: number[]): number {
+  return Math.max(...xs) - Math.min(...xs);
+}
+// - https://en.wikipedia.org/wiki/Range_(statistics)
+
+
+/**
+ * Find the mean of squared deviation of numbers from its mean.
+ * @param xs a list of numbers
+ * @returns σ² = E[(xs - µ)²] | µ = mean(xs)
+ */
+export function variance(...xs: number[]): number {
+  if (xs.length===0) return 0;
+  var m = mean(...xs), a = 0;
+  for (var x of xs)
+    a += (x-m)**2;
+  return a/xs.length;
+}
+// - https://en.wikipedia.org/wiki/Variance
+
+
+
 
 // FORMAT
 // ------
