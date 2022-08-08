@@ -124,7 +124,7 @@ export function roundDiv(x: number, y: number): number {
  * Find the remainder of x/y with sign of x (truncated division).
  * @param x dividend
  * @param y divisor
- * @returns trunc(x/y)
+ * @returns trunc(x % y)
  */
 export function rem(x: number, y: number): number {
   return x % y;
@@ -136,7 +136,7 @@ export function rem(x: number, y: number): number {
  * Find the remainder of x/y with sign of y (floored division).
  * @param x dividend
  * @param y divisor
- * @returns floor(x/y)
+ * @returns floor(x % y)
  */
 export function mod(x: number, y: number): number {
   return x - y*Math.floor(x/y);
@@ -148,7 +148,7 @@ export function mod(x: number, y: number): number {
  * Find the remainder of x/y with +ve sign (euclidean division).
  * @param x dividend
  * @param y divisor
- * @returns n>0: floor(x/y), n<0: ceil(x/y)
+ * @returns n>0: floor(x % y), n<0: ceil(x % y)
  */
 export function modp(x: number, y: number): number {
   return x - Math.abs(y)*Math.floor(x/Math.abs(y));
@@ -251,7 +251,7 @@ export function isPow(x: number, n: number): boolean {
  * Get previous power-of-n of a number.
  * @param x a number
  * @param n base
- * @returns 2ⁱ | 2ⁱ < x and 2ⁱ ≥ x/2
+ * @returns nⁱ | nⁱ < x and nⁱ ≥ x/n
  */
 export function prevPow(x: number, n: number): number {
   var p = log(Math.abs(x), Math.abs(n));
@@ -263,7 +263,7 @@ export function prevPow(x: number, n: number): number {
  * Find next power-of-n of a number.
  * @param x a number
  * @param n base
- * @returns 2ⁱ | 2ⁱ > x and 2ⁱ ≤ 2x
+ * @returns nⁱ | nⁱ > x and nⁱ ≤ n*x
  */
 export function nextPow(x: number, n: number): number {
   var p = log(Math.abs(x), Math.abs(n));

@@ -7,13 +7,13 @@ A collection of common number functions.<br>
 
 A number is a mathematical object used to count, measure, and label. [Number]
 type is double-precision 64-bit binary format IEEE 754 value. This package
-includes common number functions related to querying *about* numbers,
-*comparing* numbers, *rounding* numbers, performing *rounded division*,
-performing *modulo* operations, *controlling range* of numbers, performing
-*arithmetic* operations, obtaining *divisors* of a number (and related
-operations), getting the number of possible *arrangements* of a set of objects,
-performing *geometry*-related calculations, performing basic *statistical*
-analysis, and finding various *statistical means*.
+includes common number functions related to querying **about** numbers,
+**comparing** numbers, **rounding** numbers, performing **rounded division**,
+performing **modulo** operations, **controlling range** of numbers, performing
+**arithmetic** operations, obtaining **divisors** of a number (and related
+operations), getting the number of possible **arrangements** of a set of objects,
+performing **geometry**-related calculations, performing basic **statistical**
+analysis, and finding various **statistical means**.
 
 This package is available in *Node.js* and *Web* formats. The web format
 is exposed as `extra_number` standalone variable and can be loaded from
