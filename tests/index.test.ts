@@ -93,11 +93,11 @@ test("significantDigits", () => {
 
 test("compare", () => {
   var a = compare(10, 12);
-  expect(a).toBe(-1);
+  expect(a).toBeLessThan(0);
   var a = compare(12, 12);
   expect(a).toBe(0);
   var a = compare(17, 12);
-  expect(a).toBe(1);
+  expect(a).toBeGreaterThan(0);
 });
 
 
@@ -430,6 +430,8 @@ test("median", () => {
   expect(a).toBe(7);
   var a = median(1, 7, 8, 10);
   expect(a).toBe(7.5);
+  var a = median();  // sp
+  expect(a).toBe(0);  // sp
 });
 
 
@@ -460,6 +462,8 @@ test("variance", () => {
   expect(a).toBe(0.6666666666666666);
   var a = variance(1, 2, 3, 4);
   expect(a).toBe(1.25);
+  var a = variance();  // sp
+  expect(a).toBe(0);  // sp
 });
 
 
@@ -470,6 +474,8 @@ test("arithmeticMean", () => {
   expect(a).toBe(2);
   var a = arithmeticMean(1, 2, 3, 4);
   expect(a).toBe(2.5);
+  var a = arithmeticMean();  // sp
+  expect(a).toBe(0);  // sp
 });
 
 

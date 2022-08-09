@@ -28,8 +28,8 @@ is exposed as `extra_number` standalone variable and can be loaded from
 
 ```javascript
 const number = require('extra-number');
-// import * as bit from "extra-number";
-// import * as bit from "https://unpkg.com/extra-number/index.mjs"; (deno)
+// import * as number from "extra-number";
+// import * as number from "https://unpkg.com/extra-number/index.mjs"; (deno)
 
 number.isPrime(53);
 // → true
