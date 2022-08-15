@@ -31,3 +31,9 @@ https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-i
 - math.dist()
 - math.tau
 - math: separate statistics?
+
+
+# Ideas from "iterable"
+# function mirroredConstrain(x: number, min: number, max: number): number {
+#   return x>=min? Math.min(x, max) : Math.min(x-min+max, min);
+# }
