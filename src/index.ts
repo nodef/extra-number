@@ -331,20 +331,36 @@ export function aliquotSum(x: number): number {
 
 
 /**
+ * Find the least prime number which divides a number.
+ * @param x a number
+ * @returns least prime factor
+ */
+export function minPrimeFactor(x: number): number {
+  var x = Math.abs(x);
+  // 1. LPF of 2, 3 is the number itself.
+  if (x<=1) return 0;
+  if (x<=3) return x;
+  // 2. LPF for multiples of 2, 3.
+  if (x % 2===0) return 2;
+  if (x % 3===0) return 3;
+  // 3. LPF can be 6k-1 or 6k+1.
+  for (var i=6, I=Math.sqrt(x)+1; i<=I; i+=6) {
+    if (x % (i-1)===0) return i-1;
+    if (x % (i+1)===0) return i+1;
+  }
+  return x;
+}
+export {minPrimeFactor as leastPrimeFactor};
+// - https://mathworld.wolfram.com/LeastPrimeFactor.html
+
+
+/**
  * Check if number is prime.
  * @param x a number
  * @returns is divisible by 1 and itself only?
  */
 export function isPrime(x: number): boolean {
-  var x = Math.abs(x);
-  // 1. 2, 3 are prime
-  if (x<=3) return x>1;
-  // 2. Multiples of 2, 3 not prime
-  if (x % 2===0 || x % 3===0) return false;
-  // 3. Factor of 6k-1 or 6k+1 => not prime
-  for (var i=6, I=Math.sqrt(x)+1; i<=I; i+=6)
-    if (x % (i-1)===0 || x % (i+1)===0) return false;
-  return true;
+  return x!==0 && minPrimeFactor(x) === Math.abs(x);
 }
 
 
