@@ -418,6 +418,42 @@ function pushPrimeFactorTo$(a: number[], x: number, f: number): number {
 
 
 /**
+ * Find the prime factors and respective exponents of a number.
+ * @param x a number
+ * @returns [[f₀, e₀], [f₁, e₁], ...] | fᵢ is a prime factor of x and eᵢ is its exponent
+ */
+export function primeExponentials(x: number): [number, number][] {
+  var x = Math.abs(x), a = [];
+  if (x<=1) return [];
+  if (x<=3) return [[x, 1]];
+  // 2. Try factors 2, 3.
+  x = pushPrimeExponentialTo$(a, x, 2);
+  x = pushPrimeExponentialTo$(a, x, 3);
+  // 3. Try factors 6k-1, 6k+1.
+  for (var i=6, I=Math.sqrt(x)+1; x>1 && i<=I; i+=6) {
+    x = pushPrimeExponentialTo$(a, x, i-1);
+    x = pushPrimeExponentialTo$(a, x, i+1);
+  }
+  if (x>1) a.push([x, 1]);
+  return a;
+}
+
+function pushPrimeExponentialTo$(a: [number, number][], x: number, f: number): number {
+  if (x % f!==0) return x;
+  var e = 0;
+  do {
+    x /= f; ++e;
+  } while (x % f===0);
+  a.push([f, e]);
+  return x;
+}
+// - https://www.geeksforgeeks.org/prime-factors-big-number/
+// - https://reference.wolfram.com/language/ref/FactorInteger.html
+// - https://mathworld.wolfram.com/PrimeFactorization.html
+// - https://mathworld.wolfram.com/PrimeFactor.html
+
+
+/**
  * Check if number is prime.
  * @param x a number
  * @returns is divisible by 1 and itself only?

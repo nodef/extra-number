@@ -1,6 +1,6 @@
 {
   "name": "extra-number",
-  "version": "2.2.25",
+  "version": "2.2.26",
   "description": "A collection of common number functions.",
   "sideEffects": false,
   "main": "index.js",
