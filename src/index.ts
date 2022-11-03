@@ -312,6 +312,9 @@ export function properDivisors(x: number): number[] {
     if (x % i===0) a.push(i);
   return a;
 }
+export {properDivisors as aliquotParts};
+// - https://mathworld.wolfram.com/ProperDivisor.html
+// - https://en.wikipedia.org/wiki/Divisor#Further_notions_and_facts
 
 
 /**
