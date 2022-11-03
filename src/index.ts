@@ -385,6 +385,39 @@ export {maxPrimeFactor as greatestPrimeFactor};
 
 
 /**
+ * Find the prime factors of a number.
+ * @param x a number
+ * @returns [f₀, f₁, ...] | fᵢ divides x and is prime
+ */
+export function primeFactors(x: number): number[] {
+  var x = Math.abs(x), a = [];
+  if (x<=1) return [];
+  if (x<=3) return [x];
+  // 2. Try factors 2, 3.
+  x = pushPrimeFactorTo$(a, x, 2);
+  x = pushPrimeFactorTo$(a, x, 3);
+  // 3. Try factors 6k-1, 6k+1.
+  for (var i=6, I=Math.sqrt(x)+1; x>1 && i<=I; i+=6) {
+    x = pushPrimeFactorTo$(a, x, i-1);
+    x = pushPrimeFactorTo$(a, x, i+1);
+  }
+  if (x>1) a.push(x);
+  return a;
+}
+
+function pushPrimeFactorTo$(a: number[], x: number, f: number): number {
+  if (x % f!==0) return x;
+  do {
+    x /= f;
+  } while (x % f===0);
+  a.push(f);
+  return x;
+}
+// - https://www.geeksforgeeks.org/prime-factors-big-number/
+// - https://mathworld.wolfram.com/PrimeFactor.html
+
+
+/**
  * Check if number is prime.
  * @param x a number
  * @returns is divisible by 1 and itself only?

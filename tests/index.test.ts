@@ -25,6 +25,7 @@ import {
   aliquotSum,
   minPrimeFactor,
   maxPrimeFactor,
+  primeFactors,
   isPrime,
   gcd,
   lcm,
@@ -341,6 +342,20 @@ test("maxPrimeFactor", () => {
   expect(a).toBe(11);
   var a = maxPrimeFactor(53);
   expect(a).toBe(53);
+});
+
+
+test("primeFactors", () => {
+  var a = primeFactors(1);
+  expect(a).toStrictEqual([]);
+  var a = primeFactors(3);
+  expect(a).toStrictEqual([3]);
+  var a = primeFactors(21);
+  expect(a).toStrictEqual([3, 7]);
+  var a = primeFactors(55);
+  expect(a).toStrictEqual([5, 11]);
+  var a = primeFactors(53);
+  expect(a).toStrictEqual([53]);
 });
 
 
