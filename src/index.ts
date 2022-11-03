@@ -355,6 +355,36 @@ export {minPrimeFactor as leastPrimeFactor};
 
 
 /**
+ * Find the greatest prime number which divides a number.
+ * @param x a number
+ * @returns greatest prime factor
+ */
+export function maxPrimeFactor(x: number): number {
+  var x = Math.abs(x), a = 0;
+  // 1. GPF of 2, 3 is the number itself.
+  if (x<=1) return 0;
+  if (x<=3) return x;
+  // 2. Remove factors 2, 3.
+  for (; x % 2===0; a=2)
+    x /= 2;
+  for (; x % 3===0; a=3)
+    x /= 3;
+  // 3. Remove factors 6k-1, 6k+1.
+  for (var i=6, I=Math.sqrt(x)+1; x>1 && i<=I; i+=6) {
+    for (; x % (i-1)==0; a=i-1)
+      x /= i-1;
+    for (; x % (i+1)==0; a=i+1)
+      x /= i+1;
+  }
+  if (x<=1) return a;
+  return x;
+}
+export {maxPrimeFactor as greatestPrimeFactor};
+// - https://mathworld.wolfram.com/GreatestPrimeFactor.html
+// - https://www.geeksforgeeks.org/find-largest-prime-factor-number/
+
+
+/**
  * Check if number is prime.
  * @param x a number
  * @returns is divisible by 1 and itself only?
