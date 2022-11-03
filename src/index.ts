@@ -427,20 +427,6 @@ export function isPrime(x: number): boolean {
 }
 
 
-
-
-// Find the greatest common divisor of a pair of numbers.
-function gcdPair(x: number, y: number): number {
-  while (y!==0) {
-    var t = y;
-    y = x % y;
-    x = t;
-  }
-  return x;
-}
-// - https://lemire.me/blog/2013/12/26/fastest-way-to-compute-the-greatest-common-divisor/
-// - https://en.wikipedia.org/wiki/Euclidean_algorithm
-
 /**
  * Find the greatest common divisor of numbers.
  * @param xs a list of numbers
@@ -453,6 +439,18 @@ export function gcd(...xs: number[]): number {
   return a;
 }
 export {gcd as hcf};
+
+// Find the greatest common divisor of a pair of numbers.
+function gcdPair(x: number, y: number): number {
+  while (y!==0) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+// - https://lemire.me/blog/2013/12/26/fastest-way-to-compute-the-greatest-common-divisor/
+// - https://en.wikipedia.org/wiki/Euclidean_algorithm
 
 
 /**
@@ -600,6 +598,18 @@ export function median(...xs: number[]): number {
 // - https://en.wikipedia.org/wiki/Median
 
 
+/**
+ * Find the values that appear most often.
+ * @param xs a list of numbers
+ * @returns [xₘ₁, xₘ₂, ...] | count(xₘᵢ) ≥ count(xᵢ) ∀ xᵢ ∈ xs
+ */
+export function modes(...xs: number[]): number[] {
+  xs.sort((a, b) => a-b);
+  var r = maxRepeat(xs);
+  return getRepeats(xs, r);
+}
+// - https://en.wikipedia.org/wiki/Mode_(statistics)
+
 // Get the maximum number of times any number has repeated in a sorted array.
 function maxRepeat(xs: number[]): number {
   var count = Math.min(xs.length, 1), max = count;
@@ -617,18 +627,6 @@ function getRepeats(xs: number[], r: number): number[] {
     if (xs[i]===xs[i+r]) a.push(xs[i+=r]);
   return a;
 }
-
-/**
- * Find the values that appear most often.
- * @param xs a list of numbers
- * @returns [xₘ₁, xₘ₂, ...] | count(xₘᵢ) ≥ count(xᵢ) ∀ xᵢ ∈ xs
- */
-export function modes(...xs: number[]): number[] {
-  xs.sort((a, b) => a-b);
-  var r = maxRepeat(xs);
-  return getRepeats(xs, r);
-}
-// - https://en.wikipedia.org/wiki/Mode_(statistics)
 
 
 /**
@@ -679,7 +677,7 @@ export {arithmeticMean as mean};
  * @param xs a list of numbers
  * @returns ⁿ√(∏xᵢ) | n = size(xs)
  */
- export function geometricMean(...xs: number[]): number {
+export function geometricMean(...xs: number[]): number {
   var n = xs.length;
   return root(product(...xs), n);
 }
