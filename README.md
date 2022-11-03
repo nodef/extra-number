@@ -90,6 +90,9 @@ number.significantDigits(0.0034);
 |  |  |
 | [properDivisors] | List all divisors of a number, except itself. |
 | [aliquotSum] | Sum all proper divisors of a number. |
+| [minPrimeFactor] | Find the least prime number which divides a number. |
+| [maxPrimeFactor] | Find the greatest prime number which divides a number. |
+| [primeFactors] | Find the prime factors of a number. |
 | [isPrime] | Check if number is prime. |
 | [gcd] | Find the greatest common divisor of numbers. |
 | [lcm] | Find the least common multiple of numbers. |
@@ -163,6 +166,9 @@ number.significantDigits(0.0034);
 [log]: https://nodef.github.io/extra-number/functions/log.html
 [properDivisors]: https://nodef.github.io/extra-number/functions/properDivisors.html
 [aliquotSum]: https://nodef.github.io/extra-number/functions/aliquotSum.html
+[minPrimeFactor]: https://nodef.github.io/extra-number/functions/minPrimeFactor.html
+[maxPrimeFactor]: https://nodef.github.io/extra-number/functions/maxPrimeFactor.html
+[primeFactors]: https://nodef.github.io/extra-number/functions/primeFactors.html
 [isPrime]: https://nodef.github.io/extra-number/functions/isPrime.html
 [gcd]: https://nodef.github.io/extra-number/functions/gcd.html
 [lcm]: https://nodef.github.io/extra-number/functions/lcm.html
