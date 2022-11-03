@@ -1,46 +1,48 @@
 import * as number   from "../src";
-import {is}          from "../src";
-import {significantDigits} from "../src";
-import {compare}     from "../src";
-import {floor}       from "../src";
-import {ceil}        from "../src";
-import {round}       from "../src";
-import {floorDiv}    from "../src";
-import {ceilDiv}     from "../src";
-import {roundDiv}    from "../src";
-import {rem}         from "../src";
-import {mod}         from "../src";
-import {modp}        from "../src";
-import {constrain}   from "../src";
-import {normalize}   from "../src";
-import {remap}       from "../src";
-import {lerp}        from "../src";
-import {isPow}       from "../src";
-import {prevPow}     from "../src";
-import {nextPow}     from "../src";
-import {root}        from "../src";
-import {log}         from "../src";
-import {properDivisors} from "../src";
-import {aliquotSum}     from "../src";
-import {isPrime}        from "../src";
-import {gcd}         from "../src";
-import {lcm}         from "../src";
-import {factorial}   from "../src";
-import {binomial}    from "../src";
-import {multinomial} from "../src";
-import {degrees}     from "../src";
-import {radians}     from "../src";
-import {sum}         from "../src";
-import {product}     from "../src";
-import {median}      from "../src";
-import {modes}       from "../src";
-import {range}       from "../src";
-import {variance}    from "../src";
-import {arithmeticMean} from "../src";
-import {geometricMean}  from "../src";
-import {harmonicMean}   from "../src";
-import {quadriaticMean} from "../src";
-import {cubicMean}      from "../src";
+import {
+  is,
+  significantDigits,
+  compare,
+  floor,
+  ceil,
+  round,
+  floorDiv,
+  ceilDiv,
+  roundDiv,
+  rem,
+  mod,
+  modp,
+  constrain,
+  normalize,
+  remap,
+  lerp,
+  isPow,
+  prevPow,
+  nextPow,
+  root,
+  log,
+  properDivisors,
+  aliquotSum,
+  isPrime,
+  gcd,
+  lcm,
+  factorial,
+  binomial,
+  multinomial,
+  degrees,
+  radians,
+  sum,
+  product,
+  median,
+  modes,
+  range,
+  variance,
+  arithmeticMean,
+  geometricMean,
+  harmonicMean,
+  quadriaticMean,
+  cubicMean,
+} from "../src";
 
 
 
