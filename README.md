@@ -82,8 +82,8 @@ number.significantDigits(0.0034);
 | [lerp] | Linearly interpolate a number between two numbers. |
 |  |  |
 | [isPow] | Check if a number is a power-of-n. |
-| [prevPow] | Get previous power-of-n of a number. |
-| [nextPow] | Find next power-of-n of a number. |
+| [prevPow] | Find largest power-of-n less than or equal to given number. |
+| [nextPow] | Find smallest power-of-n greater than or equal to given number. |
 |  |  |
 | [root] | Find the nth root of a number (ⁿ√). |
 | [log] | Find the logarithm of a number with a given base. |

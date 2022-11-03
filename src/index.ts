@@ -248,26 +248,28 @@ export function isPow(x: number, n: number): boolean {
 
 
 /**
- * Get previous power-of-n of a number.
+ * Find largest power-of-n less than or equal to given number.
  * @param x a number
  * @param n base
- * @returns nⁱ | nⁱ < x and nⁱ ≥ x/n
+ * @returns nⁱ | nⁱ ≤ x and nⁱ > x/n
  */
 export function prevPow(x: number, n: number): number {
-  var p = log(Math.abs(x), Math.abs(n));
-  return Math.pow(n, Math.ceil(p-1));
+  if (x<=1) return 0;
+  var p = Math.floor(Math.log(x) / Math.log(n));
+  return  Math.pow(n, p);
 }
 
 
 /**
- * Find next power-of-n of a number.
+ * Find smallest power-of-n greater than or equal to given number.
  * @param x a number
  * @param n base
- * @returns nⁱ | nⁱ > x and nⁱ ≤ n*x
+ * @returns nⁱ | nⁱ ≥ x and nⁱ < n*x
  */
 export function nextPow(x: number, n: number): number {
-  var p = log(Math.abs(x), Math.abs(n));
-  return Math.pow(n, Math.floor(p+1));
+  if (x<=0) return 1;
+  var p = Math.ceil(Math.log(x) / Math.log(n));
+  return  Math.pow(n, p);
 }
 
 

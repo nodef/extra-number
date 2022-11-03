@@ -253,20 +253,20 @@ test("isPow", () => {
 
 
 test("prevPow", () => {
+  var a = prevPow(32, 2);
+  expect(a).toBe(32);
   var a = prevPow(35, 2);
   expect(a).toBe(32);
-  var a = prevPow(35, 4);
-  expect(a).toBe(16);
   var a = prevPow(35, 3);
   expect(a).toBe(27);
 });
 
 
 test("nextPow", () => {
+  var a = nextPow(32, 2);
+  expect(a).toBe(32);
   var a = nextPow(29, 2);
   expect(a).toBe(32);
-  var a = nextPow(29, 4);
-  expect(a).toBe(64);
   var a = nextPow(29, 3);
   expect(a).toBe(81);
 });
