@@ -1,4 +1,3 @@
-import * as number   from "../src";
 import {
   is,
   significantDigits,
@@ -47,6 +46,7 @@ import {
   quadriaticMean,
   cubicMean,
 } from "../src";
+import * as number from "../src";
 
 
 
@@ -73,6 +73,9 @@ test("example1", () => {
 
 
 
+// ABOUT
+// -----
+
 test("is", () => {
   var a = is(3.14);
   expect(a).toBe(true);
@@ -97,6 +100,11 @@ test("significantDigits", () => {
 });
 
 
+
+
+// COMPARE
+// -------
+
 test("compare", () => {
   var a = compare(10, 12);
   expect(a).toBeLessThan(0);
@@ -106,6 +114,11 @@ test("compare", () => {
   expect(a).toBeGreaterThan(0);
 });
 
+
+
+
+// ROUND
+// -----
 
 test("floor", () => {
   var a = floor(9.161, 1);
@@ -138,6 +151,11 @@ test("round", () => {
   expect(a).toBe(0.3);
 });
 
+
+
+
+// ROUNDED DIVISION
+// ----------------
 
 test("floorDiv", () => {
   var a = floorDiv(15, 4);
@@ -172,6 +190,11 @@ test("roundDiv", () => {
 // - https://www.learndatasci.com/solutions/python-double-slash-operator-floor-division/
 
 
+
+
+// MODULO
+// ------
+
 test("rem", () => {
   var a = rem(1, 10);
   expect(a).toBe(1);
@@ -201,6 +224,11 @@ test("modp", () => {
   expect(a).toBe(1);
 });
 
+
+
+
+// RANGE CONTROL
+// -------------
 
 test("constrain", () => {
   var a = constrain(20, 0, 50);
@@ -241,6 +269,11 @@ test("lerp", () => {
 });
 // - https://processing.org/reference/lerp_.html
 
+
+
+
+// ARITHMETIC
+// ----------
 
 test("isPow", () => {
   var a = isPow(32, 2);
@@ -293,6 +326,11 @@ test("log", () => {
 });
 // - https://en.wikipedia.org/wiki/Logarithm
 
+
+
+
+// DIVISORS
+// --------
 
 test("properDivisors", () => {
   var a = properDivisors(6);
@@ -412,6 +450,11 @@ test("lcm", () => {
 });
 
 
+
+
+// ARRANGEMENTS
+// ------------
+
 test("factorial", () => {
   var a = factorial(5);
   expect(a).toBe(120);
@@ -449,6 +492,11 @@ test("multinomial", () => {
 });
 
 
+
+
+// GEOMETRY
+// --------
+
 test("degrees", () => {
   var a = degrees(3);
   expect(a).toBe(171.88733853924697);
@@ -464,6 +512,11 @@ test("radians", () => {
   expect(a).toBe(1.0471975511965976);
 });
 
+
+
+
+// STATISTICS
+// ----------
 
 test("sum", () => {
   var a = sum(1, 2);
@@ -528,6 +581,11 @@ test("variance", () => {
   expect(a).toBe(0);  // sp
 });
 
+
+
+
+// MEAN (STATISTICS)
+// -----------------
 
 test("arithmeticMean", () => {
   var a = arithmeticMean(1, 2);
