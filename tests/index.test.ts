@@ -46,26 +46,25 @@ import {
   quadriaticMean,
   cubicMean,
 } from "../src";
-import * as number from "../src";
 
 
 
 
 // 1. Basic tests.
 test("example1", () => {
-  var b = number.isPrime(53);
+  var b = isPrime(53);
   expect(b).toBe(true);
   // → true
 
-  var x = number.properDivisors(6);
+  var x = properDivisors(6);
   expect(x).toStrictEqual([1, 2, 3]);
   // → [1, 2, 3]
 
-  var a = number.round(9.1357, 0.05);
+  var a = round(9.1357, 0.05);
   expect(a).toBe(9.15);
   // → 9.15
 
-  var a = number.significantDigits(0.0034);
+  var a = significantDigits(0.0034);
   expect(a).toBe(2);
   // → 2
 });

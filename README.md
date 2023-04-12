@@ -1,23 +1,22 @@
-A collection of common number functions.<br>
+A **number** is a mathematical object used to count, measure, and label.<br>
 📦 [Node.js](https://www.npmjs.com/package/extra-number),
 🌐 [Web](https://www.npmjs.com/package/extra-number.web),
 📜 [Files](https://unpkg.com/extra-number/),
 📰 [Docs](https://nodef.github.io/extra-number/).
 📘 [Wiki](https://github.com/nodef/extra-number/wiki/).
 
-A number is a mathematical object used to count, measure, and label. [Number]
-type is double-precision 64-bit binary format IEEE 754 value. This package
-includes common number functions related to querying **about** numbers,
-**comparing** numbers, **rounding** numbers, performing **rounded division**,
-performing **modulo** operations, **controlling range** of numbers, performing
-**arithmetic** operations, obtaining **divisors** of a number (and related
-operations), getting the number of possible **arrangements** of a set of objects,
-performing **geometry**-related calculations, performing basic **statistical**
-analysis, and finding various **statistical means**.
+In JavaScript, [Number] type is double-precision 64-bit binary format IEEE 754
+value. This package includes common number functions related to querying
+**about** numbers, **comparing** numbers, **rounding** numbers, performing
+**rounded division**, performing **modulo** operations, **controlling range** of
+numbers, performing **arithmetic** operations, obtaining **divisors** of a
+number (and related operations), getting the number of possible **arrangements**
+of a set of objects, performing **geometry**-related calculations, performing
+basic **statistical** analysis, and finding various **statistical means**.
 
-This package is available in *Node.js* and *Web* formats. The web format
-is exposed as `extra_number` standalone variable and can be loaded from
-[jsDelivr CDN].
+This package is available in *Node.js* and *Web* formats. To use it on the web,
+simply use the `extra_number` global variable after loading with a `<script>`
+tag from the [jsDelivr CDN].
 
 > Stability: [Experimental](https://www.youtube.com/watch?v=L1j93RnIxEo).
 
@@ -27,27 +26,27 @@ is exposed as `extra_number` standalone variable and can be loaded from
 <br>
 
 ```javascript
-const number = require('extra-number');
-// import * as number from "extra-number";
-// import * as number from "https://unpkg.com/extra-number/index.mjs"; (deno)
+const xnumber = require('extra-number');
+// import * as xnumber from "extra-number";
+// import * as xnumber from "https://unpkg.com/extra-number/index.mjs"; (deno)
 
-number.isPrime(53);
+xnumber.isPrime(53);
 // → true
 
-number.properDivisors(6);
+xnumber.properDivisors(6);
 // → [1, 2, 3]
 
-number.round(9.1357, 0.05);
+xnumber.round(9.1357, 0.05);
 // → 9.15
 
-number.significantDigits(0.0034);
+xnumber.significantDigits(0.0034);
 // → 2
 
 // TOFIX:
-// number.fromRoman('DCXLIX');
+// xnumber.fromRoman('DCXLIX');
 // → 649
 
-// number.toScientific(695700000);
+// xnumber.toScientific(695700000);
 // → '6.957×10⁸' (radius of Sun in m)
 ```
 
