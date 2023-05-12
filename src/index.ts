@@ -14,6 +14,70 @@ export function is(v: any): v is number {
 }
 
 
+// TODO: isEven()?
+// TODO: isOdd()?
+// TODO: isNatural()?
+// TODO: isWhole()?
+// TODO: isInteger()?
+// TODO: isPositive()?
+// TOOD: isNegative()?
+
+
+/**
+ * Examine if number is perfect.
+ * @param x a number
+ * @returns sum of divisors(x) excluding x = x?
+ */
+function isPerfect(x: number): boolean {
+  return aliquotSum(x)===x;
+}
+
+
+// TODO: isAlmostPerfect()?
+// TODO: isSemiPerfect()?
+// TODO: isQuasiPerfect()?
+// TODO: isWeird()?
+
+
+/**
+ * Examine if number is deficient.
+ * @param x a number
+ * @returns sum of divisors(x) excluding x < x?
+ */
+function isAbundant(x: number): boolean {
+  return aliquotSum(x) > x;
+}
+// export {isAbundant as isExcessive};
+
+
+// TODO: isPrimitiveAbundant()?
+// TODO: isSuperAbundant()?
+
+
+/**
+ * Obtain the abundance of a number.
+ * @param x a number
+ * @returns sum of divisors(x) excluding x - x
+ */
+function abundance(x: number): number {
+  return aliquotSum(x) - x;
+}
+
+
+/**
+ * Obtain the abundancy index of a number.
+ * @param x a number
+ * @returns (sum of divisors(x)) / x
+ */
+function abundancyIndex(x: number): number {
+  return (aliquotSum(x) + x) / x;
+}
+
+
+// TODO: areAmicable()?
+// TODO: areFriendly()?
+
+
 /**
  * Count the number of significant digits in a number.
  * @param x a number
@@ -456,13 +520,16 @@ function pushPrimeExponentialTo$(a: [number, number][], x: number, f: number): n
 
 
 /**
- * Check if number is prime.
+ * Examine if number is prime.
  * @param x a number
  * @returns is divisible by 1 and itself only?
  */
 export function isPrime(x: number): boolean {
   return x!==0 && minPrimeFactor(x) === Math.abs(x);
 }
+
+
+// TODO: isComposite()?
 
 
 /**
