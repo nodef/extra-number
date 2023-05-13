@@ -1,8 +1,8 @@
-// METHODS
-// =======
+// #region METHODS
+// ===============
 
-// ABOUT
-// -----
+// #region ABOUT
+// -------------
 
 /**
  * Check if value is a number.
@@ -88,12 +88,13 @@ export function significantDigits(x: number): number {
   return a.replace(/e[\+\-0-9]*$/, "").replace( /^0\.?0*|\./, "").length;
 }
 // - https://stackoverflow.com/questions/22884720/what-is-the-fastest-way-to-count-the-number-of-significant-digits-of-a-number
+// #endregion
 
 
 
 
-// COMPARE
-// -------
+// #region COMPARE
+// ---------------
 
 /**
  * Compare two numbers.
@@ -104,12 +105,13 @@ export function significantDigits(x: number): number {
 export function compare(x: number, y: number): number {
   return x-y;
 }
+// #endregion
 
 
 
 
-// ROUND
-// -----
+// #region ROUND
+// -------------
 
 /**
  * Round down a number to specific precision.
@@ -139,12 +141,13 @@ export function ceil(x: number, pre: number=1): number {
 export function round(x: number, pre: number=1): number {
   return Math.round(x/pre)*pre;
 }
+// #endregion
 
 
 
 
-// ROUNDED DIVISION
-// ----------------
+// #region ROUNDED DIVISION
+// ------------------------
 
 /**
  * Perform floor-divison of two numbers.
@@ -177,12 +180,13 @@ export function ceilDiv(x: number, y: number): number {
 export function roundDiv(x: number, y: number): number {
   return Math.round(x/y);
 }
+// #endregion
 
 
 
 
-// MODULO
-// ------
+// #region MODULO
+// --------------
 
 /**
  * Find the remainder of x/y with sign of x (truncated division).
@@ -218,12 +222,13 @@ export function modp(x: number, y: number): number {
   return x - Math.abs(y)*Math.floor(x/Math.abs(y));
 }
 // - https://en.wikipedia.org/wiki/Modulo_operation
+// #endregion
 
 
 
 
-// RANGE CONTROL
-// -------------
+// #region RANGE CONTROL
+// ---------------------
 
 /**
  * Constrain a number within a minimum and a maximum value.
@@ -290,12 +295,13 @@ export function lerp(x: number, y: number, t: number): number {
 }
 // - https://processing.org/reference/lerp_.html
 // - https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
+// #endregion
 
 
 
 
-// ARITHMETIC
-// ----------
+// #region ARITHMETIC
+// ------------------
 
 /**
  * Check if a number is a power-of-n.
@@ -360,12 +366,13 @@ export function log(x: number, b: number=Math.E): number {
   return Math.log(x)/Math.log(b);
 }
 // - https://en.wikipedia.org/wiki/Logarithm
+// #endregion
 
 
 
 
-// DIVISORS
-// --------
+// #region DIVISORS
+// ----------------
 
 /**
  * List all divisors of a number, except itself.
@@ -570,12 +577,13 @@ export function lcm(...xs: number[]): number {
   return a;
 }
 // - https://en.wikipedia.org/wiki/Least_common_multiple
+// #endregion
 
 
 
 
-// ARRANGEMENTS
-// ------------
+// #region ARRANGEMENTS
+// --------------------
 
 /**
  * Find the factorial of a number.
@@ -627,12 +635,13 @@ export function multinomial(...ks: number[]): number {
   return a;
 }
 // - https://en.wikipedia.org/wiki/Multinomial_distribution
+// #endregion
 
 
 
 
-// GEOMETRY
-// --------
+// #region GEOMETRY
+// ----------------
 
 /**
  * Convert radians to degrees.
@@ -654,12 +663,13 @@ export function radians(x: number): number {
   return x*(Math.PI/180);
 }
 // - https://processing.org/reference/radians_.html
+// #endregion
 
 
 
 
-// STATISTICS
-// ----------
+// #region STATISTICS
+// ------------------
 
 /**
  * Find the sum of numbers (Σ).
@@ -758,12 +768,14 @@ export function variance(...xs: number[]): number {
   return a/xs.length;
 }
 // - https://en.wikipedia.org/wiki/Variance
+// #endregion
 
 
 
 
-// MEAN (STATISTICS)
-// -----------------
+
+// #region MEAN (STATISTICS)
+// -------------------------
 
 /**
  * Find the average of numbers.
@@ -827,14 +839,59 @@ export function cubicMean(...xs: number[]): number {
     a += x**3;
   return Math.cbrt(a/n);
 }
+// #endregion
 
 
 
 
-// FORMAT
-// ------
+// #region ROMAN NUMERALS
+// ----------------------
 
-// export {default as fromRoman} from './_fromRoman';
+/** List of symbols in the Roman numeral system. */
+const ROMAN_SYMBOLS = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
+
+/** Respective values in the Roman numeral system. */
+const ROMAN_VALUES  = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+
+
+/**
+ * Convert roman numerals to number.
+ * @param txt roman numerals
+ * @returns eg. XCV -> 95
+ */
+export function fromRomanNumerals(txt: string): number {
+  var s = ROMAN_SYMBOLS.length-1;
+  var n = txt.search(/^\s*-/) >= 0, a = 0;
+  var txt = txt.replace(/\W/g, '').toUpperCase();
+  for (var i=0, I=txt.length; i<I;  i += ROMAN_SYMBOLS[s].length) {
+    while (s>=0 && txt.substring(i, i +  ROMAN_SYMBOLS[s].length) !== ROMAN_SYMBOLS[s]) --s;
+    if (s<0) break;
+    a += ROMAN_VALUES[s];
+  }
+  return n? -a : a;
+}
+export {fromRomanNumerals as fromRoman};
+
+
+/**
+ * Convert number to roman numerals.
+ * @param x a number
+ * @returns eg. 95 -> XCV
+ */
+export function toRomanNumerals(x: number): string {
+  var a = x<0? '-' : '';
+  var x = Math.abs(x);
+  for  (var s=ROMAN_SYMBOLS.length-1; s>=0; --s)
+    while (x>=ROMAN_VALUES[s]) {
+      x -= ROMAN_VALUES[s];
+      a += ROMAN_SYMBOLS[s];
+    }
+  return a;
+}
+export {toRomanNumerals as toRoman};
+
+
 // export {default as fromScientific} from './_fromScientific';
-// export {default as toRoman} from './_toRoman';
 // export {default as toScientific} from './_toScientific';
+// #endregion
+// #endregion
