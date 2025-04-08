@@ -141,6 +141,7 @@ xnumber.significantDigits(0.0034);
 [![Coverage Status](https://coveralls.io/repos/github/nodef/extra-number/badge.svg?branch=master)](https://coveralls.io/github/nodef/extra-number?branch=master)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4acd74bb853361d9903f/test_coverage)](https://codeclimate.com/github/nodef/extra-number/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4acd74bb853361d9903f/maintainability)](https://codeclimate.com/github/nodef/extra-number/maintainability)
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/extra-number)
 
 
 [is]: https://github.com/nodef/extra-number/wiki/is
