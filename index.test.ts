@@ -3,6 +3,7 @@ import {
   is,
   significantDigits,
   compare,
+  copySign,
   floor,
   ceil,
   round,
@@ -109,6 +110,18 @@ Deno.test("compare", () => {
   assert(b === 0);
   const c = compare(17, 12);
   assert(c > 0);
+});
+//#endregion
+
+
+
+
+//#region SIGN
+Deno.test("copySign", () => {
+  const a = copySign(3.5, -1);
+  assertEquals(a, -3.5);
+  const b = copySign(-4.2, +1);
+  assertEquals(b, 4.2);
 });
 //#endregion
 

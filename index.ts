@@ -26,15 +26,6 @@ export function is(v: unknown): v is number {
 }
 
 
-// TODO: isEven()?
-// TODO: isOdd()?
-// TODO: isNatural()?
-// TODO: isWhole()?
-// TODO: isInteger()?
-// TODO: isPositive()?
-// TOOD: isNegative()?
-
-
 /**
  * Examine if number is perfect.
  * @param x a number
@@ -136,6 +127,21 @@ export function significantDigits(x: number): number {
  */
 export function compare(x: number, y: number): number {
   return x-y;
+}
+//#endregion
+
+
+
+
+//#region SIGN
+/**
+ * Copy the sign of a number to another number.
+ * @param mag number whose magnitude is to be copied
+ * @param sgn sign of the number to copy
+ * @returns `|mag|` with sign of `sgn`
+ */
+export function copySign(mag: number, sgn: number): number {
+  return Math.sign(sgn)===Math.sign(mag)? mag : -mag;
 }
 //#endregion
 
@@ -865,9 +871,6 @@ function pushPrimeExponentialTo$(a: [number, number][], x: number, f: number): n
 export function isPrime(x: number): boolean {
   return x!==0 && minPrimeFactor(x) === Math.abs(x);
 }
-
-
-// TODO: isComposite()?
 
 
 /**
