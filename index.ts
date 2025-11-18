@@ -1,3 +1,22 @@
+//#region TYPES
+/** Classification of floating point numbers. */
+export enum FloatClass {
+  /** Number is zero. */
+  ZERO      = 0x00,
+  /** Number is subnormal (denormal). */
+  SUBNORMAL = 0x10,
+  /** Number is normal. */
+  NORMAL    = 0x20,
+  /** Number is infinite. */
+  INFINITE  = 0x30,
+  /** Number is NaN (not a number). */
+  NAN       = 0x40,
+}
+//#endregion
+
+
+
+
 //#region CONSTANTS
 /** Smallest normal (not subnormal) 64-bit floating point number. */
 export const MIN_NORMAL = 2.2250738585072014e-308;
@@ -53,7 +72,7 @@ export function is(v: unknown): v is number {
  * // → false
  */
 export function isNormal(x: number): boolean {
-  if (x === 0) return false;
+  if (x===0) return false;
   if (!Number.isFinite(x)) return false;
   if (Math.abs(x) < MIN_NORMAL) return false;
   return true;
@@ -61,9 +80,53 @@ export function isNormal(x: number): boolean {
 
 
 /**
- * Examine if number is perfect.
+ * Classify a number into its floating point category.
+ * @param x a number
+ * @returns floating point class of `x`
+ * @example
+ * ```ts
+ * xnumber.classify(0);
+ * // → FloatClass.ZERO
+ * 
+ * xnumber.classify(1e-320);
+ * // → FloatClass.SUBNORMAL
+ * 
+ * xnumber.classify(3.14);
+ * // → FloatClass.NORMAL
+ * 
+ * xnumber.classify(Infinity);
+ * // → FloatClass.INFINITE
+ * 
+ * xnumber.classify(NaN);
+ * // → FloatClass.NAN
+ */
+export function classify(x: number): FloatClass {
+  if (x===0)                    return FloatClass.ZERO;
+  if (Number.isNaN(x))          return FloatClass.NAN;
+  if (!Number.isFinite(x))      return FloatClass.INFINITE;
+  if (Math.abs(x) < MIN_NORMAL) return FloatClass.SUBNORMAL;
+  return FloatClass.NORMAL;
+}
+
+
+/**
+ * Examine if sum of divisors equals the number itself.
  * @param x a number
  * @returns sum of divisors(x) excluding x = x?
+ * @example
+ * ```ts
+ * xnumber.isPerfect(6);
+ * // → true (1+2+3=6)
+ * 
+ * xnumber.isPerfect(28);
+ * // → true (1+2+4+7+14=28)
+ * 
+ * xnumber.isPerfect(12);
+ * // → false (1+2+3+4+6=16)
+ * 
+ * xnumber.isPerfect(1);
+ * // → false (no proper divisors)
+ * ```
  */
 export function isPerfect(x: number): boolean {
   return aliquotSum(x)===x;
@@ -77,9 +140,23 @@ export function isPerfect(x: number): boolean {
 
 
 /**
- * Examine if number is deficient.
+ * Examine if sum of divisors exceeds the number itself.
  * @param x a number
- * @returns sum of divisors(x) excluding x < x?
+ * @returns sum of divisors(x) excluding x > x?
+ * @example
+ * ```ts
+ * xnumber.isAbundant(8);
+ * // → false (1+2+4=7 < 8)
+ *
+ * xnumber.isAbundant(15);
+ * // → false (1+3+5=9 < 15)
+ *
+ * xnumber.isAbundant(12);
+ * // → true (1+2+3+4+6=16 > 12)
+ *
+ * xnumber.isAbundant(6);
+ * // → false (1+2+3=6 = 6)
+ * ```
  */
 export function isAbundant(x: number): boolean {
   return aliquotSum(x) > x;
@@ -92,9 +169,17 @@ export function isAbundant(x: number): boolean {
 
 
 /**
- * Obtain the abundance of a number.
+ * Obtain the sum of divisors exceeding the number itself.
  * @param x a number
  * @returns sum of divisors(x) excluding x - x
+ * @example
+ * ```ts
+ * xnumber.abundance(12);
+ * // → 4 (1+2+3+4+6=16; 16-12=4)
+ * 
+ * xnumber.abundance(15);
+ * // → -6 (1+3+5=9; 9-15=-6)
+ * ```
  */
 export function abundance(x: number): number {
   return aliquotSum(x) - x;
@@ -102,9 +187,17 @@ export function abundance(x: number): number {
 
 
 /**
- * Obtain the abundancy index of a number.
+ * Obtain the ratio of sum of divisors to the number itself.
  * @param x a number
  * @returns (sum of divisors(x)) / x
+ * @example
+ * ```ts
+ * xnumber.abundancyIndex(12);
+ * // → 1.3333... (1+2+3+4+6+12=28; 28/12=7/3)
+ * 
+ * xnumber.abundancyIndex(15);
+ * // → 0.6 (1+3+5+15=24; 24/15=8/5)
+ * ```
  */
 export function abundancyIndex(x: number): number {
   return (aliquotSum(x) + x) / x;

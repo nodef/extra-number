@@ -48,6 +48,12 @@ xnumber.significantDigits(0.0034);
 | Name | Description |
 |  ----  |  ----  |
 | [is] | Check if value is a number. |
+| [isNormal] | Check if number is normal (not zero, subnormal, infinite, or NaN). |
+| [classify] | Classify a number into its floating point category. |
+| [isPerfect] | Examine if sum of divisors equals the number itself. |
+| [isAbundant] | Examine if sum of divisors exceeds the number itself. |
+| [abundance] | Obtain the sum of divisors exceeding the number itself. |
+| [abundancyIndex] | Obtain the ratio of sum of divisors to the number itself. |
 | [significantDigits] | Count the number of significant digits in a number. |
 |  |  |
 | [compare] | Compare two numbers. |
@@ -131,6 +137,12 @@ xnumber.significantDigits(0.0034);
 
 [Number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 [is]: https://jsr.io/@nodef/extra-number/doc/~/is
+[isNormal]: https://jsr.io/@nodef/extra-number/doc/~/isNormal
+[classify]: https://jsr.io/@nodef/extra-number/doc/~/classify
+[isPerfect]: https://jsr.io/@nodef/extra-number/doc/~/isPerfect
+[isAbundant]: https://jsr.io/@nodef/extra-number/doc/~/isAbundant
+[abundance]: https://jsr.io/@nodef/extra-number/doc/~/abundance
+[abundancyIndex]: https://jsr.io/@nodef/extra-number/doc/~/abundancyIndex
 [significantDigits]: https://jsr.io/@nodef/extra-number/doc/~/significantDigits
 [compare]: https://jsr.io/@nodef/extra-number/doc/~/compare
 [floor]: https://jsr.io/@nodef/extra-number/doc/~/floor

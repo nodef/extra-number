@@ -1,6 +1,13 @@
-import {assert, assertEquals} from "jsr:@std/assert";
+import {assert, assertEquals} from "@std/assert";
 import {
+  FloatClass,
   is,
+  isNormal,
+  classify,
+  isPerfect,
+  isAbundant,
+  abundance,
+  abundancyIndex,
   significantDigits,
   compare,
   isUnordered,
@@ -87,6 +94,72 @@ Deno.test("is", () => {
   assertEquals(d, false);
   const e = is(null);
   assertEquals(e, false);
+});
+
+
+Deno.test("isNormal", () => {
+  const a = isNormal(3.14);
+  assertEquals(a, true);
+  const b = isNormal(0);
+  assertEquals(b, false);
+  const c = isNormal(1e-320);
+  assertEquals(c, false);
+  const d = isNormal(Infinity);
+  assertEquals(d, false);
+});
+
+
+Deno.test("classify", () => {
+  const a = classify(0);
+  assertEquals(a, FloatClass.ZERO);
+  const b = classify(1e-320);
+  assertEquals(b, FloatClass.SUBNORMAL);
+  const c = classify(3.14);
+  assertEquals(c, FloatClass.NORMAL);
+  const d = classify(Infinity);
+  assertEquals(d, FloatClass.INFINITE);
+  const e = classify(NaN);
+  assertEquals(e, FloatClass.NAN);
+});
+
+
+Deno.test("isPerfect", () => {
+  const a = isPerfect(6);
+  assertEquals(a, true);
+  const b = isPerfect(28);
+  assertEquals(b, true);
+  const c = isPerfect(12);
+  assertEquals(c, false);
+  const d = isPerfect(1);
+  assertEquals(d, false);
+});
+
+
+Deno.test("isAbundant", () => {
+  const a = isAbundant(8);
+  assertEquals(a, false);
+  const b = isAbundant(15);
+  assertEquals(b, false);
+  const c = isAbundant(12);
+  assertEquals(c, true);
+  const d = isAbundant(6);
+  assertEquals(d, false);
+});
+
+
+Deno.test("abundance", () => {
+  const a = abundance(12);
+  assertEquals(a, 4);
+  const b = abundance(15);
+  assertEquals(b, -6);
+});
+
+
+Deno.test("abundancyIndex", () => {
+  const a = abundancyIndex(12);
+  assertEquals(a, 28/12);
+  const b = abundancyIndex(15);
+  assertEquals(b, 24/15);
 });
 
 
