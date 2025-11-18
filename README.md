@@ -10,8 +10,8 @@ of a set of objects, performing **geometry**-related calculations, performing
 basic **statistical** analysis, and finding various **statistical means**.
 
 ▌
-📦 [JSR](https://jsr.io/@nodef/extra-sql),
-📰 [Docs](https://jsr.io/@nodef/extra-sql/doc),
+📦 [JSR](https://jsr.io/@nodef/extra-number),
+📰 [Docs](https://jsr.io/@nodef/extra-number/doc),
 
 <br>
 
@@ -130,49 +130,49 @@ xnumber.significantDigits(0.0034);
 
 
 [Number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-[is]: https://jsr.io/@nodef/extra-sql/doc/~/is
-[significantDigits]: https://jsr.io/@nodef/extra-sql/doc/~/significantDigits
-[compare]: https://jsr.io/@nodef/extra-sql/doc/~/compare
-[floor]: https://jsr.io/@nodef/extra-sql/doc/~/floor
-[ceil]: https://jsr.io/@nodef/extra-sql/doc/~/ceil
-[round]: https://jsr.io/@nodef/extra-sql/doc/~/round
-[floorDiv]: https://jsr.io/@nodef/extra-sql/doc/~/floorDiv
-[ceilDiv]: https://jsr.io/@nodef/extra-sql/doc/~/ceilDiv
-[roundDiv]: https://jsr.io/@nodef/extra-sql/doc/~/roundDiv
-[rem]: https://jsr.io/@nodef/extra-sql/doc/~/rem
-[mod]: https://jsr.io/@nodef/extra-sql/doc/~/mod
-[modp]: https://jsr.io/@nodef/extra-sql/doc/~/modp
-[constrain]: https://jsr.io/@nodef/extra-sql/doc/~/constrain
-[normalize]: https://jsr.io/@nodef/extra-sql/doc/~/normalize
-[remap]: https://jsr.io/@nodef/extra-sql/doc/~/remap
-[lerp]: https://jsr.io/@nodef/extra-sql/doc/~/lerp
-[isPow]: https://jsr.io/@nodef/extra-sql/doc/~/isPow
-[prevPow]: https://jsr.io/@nodef/extra-sql/doc/~/prevPow
-[nextPow]: https://jsr.io/@nodef/extra-sql/doc/~/nextPow
-[root]: https://jsr.io/@nodef/extra-sql/doc/~/root
-[log]: https://jsr.io/@nodef/extra-sql/doc/~/log
-[properDivisors]: https://jsr.io/@nodef/extra-sql/doc/~/properDivisors
-[aliquotSum]: https://jsr.io/@nodef/extra-sql/doc/~/aliquotSum
-[minPrimeFactor]: https://jsr.io/@nodef/extra-sql/doc/~/minPrimeFactor
-[maxPrimeFactor]: https://jsr.io/@nodef/extra-sql/doc/~/maxPrimeFactor
-[primeFactors]: https://jsr.io/@nodef/extra-sql/doc/~/primeFactors
-[primeExponentials]: https://jsr.io/@nodef/extra-sql/doc/~/primeExponentials
-[isPrime]: https://jsr.io/@nodef/extra-sql/doc/~/isPrime
-[gcd]: https://jsr.io/@nodef/extra-sql/doc/~/gcd
-[lcm]: https://jsr.io/@nodef/extra-sql/doc/~/lcm
-[factorial]: https://jsr.io/@nodef/extra-sql/doc/~/factorial
-[binomial]: https://jsr.io/@nodef/extra-sql/doc/~/binomial
-[multinomial]: https://jsr.io/@nodef/extra-sql/doc/~/multinomial
-[degrees]: https://jsr.io/@nodef/extra-sql/doc/~/degrees
-[radians]: https://jsr.io/@nodef/extra-sql/doc/~/radians
-[sum]: https://jsr.io/@nodef/extra-sql/doc/~/sum
-[product]: https://jsr.io/@nodef/extra-sql/doc/~/product
-[median]: https://jsr.io/@nodef/extra-sql/doc/~/median
-[modes]: https://jsr.io/@nodef/extra-sql/doc/~/modes
-[range]: https://jsr.io/@nodef/extra-sql/doc/~/range
-[variance]: https://jsr.io/@nodef/extra-sql/doc/~/variance
-[arithmeticMean]: https://jsr.io/@nodef/extra-sql/doc/~/arithmeticMean
-[geometricMean]: https://jsr.io/@nodef/extra-sql/doc/~/geometricMean
-[harmonicMean]: https://jsr.io/@nodef/extra-sql/doc/~/harmonicMean
-[quadriaticMean]: https://jsr.io/@nodef/extra-sql/doc/~/quadriaticMean
-[cubicMean]: https://jsr.io/@nodef/extra-sql/doc/~/cubicMean
+[is]: https://jsr.io/@nodef/extra-number/doc/~/is
+[significantDigits]: https://jsr.io/@nodef/extra-number/doc/~/significantDigits
+[compare]: https://jsr.io/@nodef/extra-number/doc/~/compare
+[floor]: https://jsr.io/@nodef/extra-number/doc/~/floor
+[ceil]: https://jsr.io/@nodef/extra-number/doc/~/ceil
+[round]: https://jsr.io/@nodef/extra-number/doc/~/round
+[floorDiv]: https://jsr.io/@nodef/extra-number/doc/~/floorDiv
+[ceilDiv]: https://jsr.io/@nodef/extra-number/doc/~/ceilDiv
+[roundDiv]: https://jsr.io/@nodef/extra-number/doc/~/roundDiv
+[rem]: https://jsr.io/@nodef/extra-number/doc/~/rem
+[mod]: https://jsr.io/@nodef/extra-number/doc/~/mod
+[modp]: https://jsr.io/@nodef/extra-number/doc/~/modp
+[constrain]: https://jsr.io/@nodef/extra-number/doc/~/constrain
+[normalize]: https://jsr.io/@nodef/extra-number/doc/~/normalize
+[remap]: https://jsr.io/@nodef/extra-number/doc/~/remap
+[lerp]: https://jsr.io/@nodef/extra-number/doc/~/lerp
+[isPow]: https://jsr.io/@nodef/extra-number/doc/~/isPow
+[prevPow]: https://jsr.io/@nodef/extra-number/doc/~/prevPow
+[nextPow]: https://jsr.io/@nodef/extra-number/doc/~/nextPow
+[root]: https://jsr.io/@nodef/extra-number/doc/~/root
+[log]: https://jsr.io/@nodef/extra-number/doc/~/log
+[properDivisors]: https://jsr.io/@nodef/extra-number/doc/~/properDivisors
+[aliquotSum]: https://jsr.io/@nodef/extra-number/doc/~/aliquotSum
+[minPrimeFactor]: https://jsr.io/@nodef/extra-number/doc/~/minPrimeFactor
+[maxPrimeFactor]: https://jsr.io/@nodef/extra-number/doc/~/maxPrimeFactor
+[primeFactors]: https://jsr.io/@nodef/extra-number/doc/~/primeFactors
+[primeExponentials]: https://jsr.io/@nodef/extra-number/doc/~/primeExponentials
+[isPrime]: https://jsr.io/@nodef/extra-number/doc/~/isPrime
+[gcd]: https://jsr.io/@nodef/extra-number/doc/~/gcd
+[lcm]: https://jsr.io/@nodef/extra-number/doc/~/lcm
+[factorial]: https://jsr.io/@nodef/extra-number/doc/~/factorial
+[binomial]: https://jsr.io/@nodef/extra-number/doc/~/binomial
+[multinomial]: https://jsr.io/@nodef/extra-number/doc/~/multinomial
+[degrees]: https://jsr.io/@nodef/extra-number/doc/~/degrees
+[radians]: https://jsr.io/@nodef/extra-number/doc/~/radians
+[sum]: https://jsr.io/@nodef/extra-number/doc/~/sum
+[product]: https://jsr.io/@nodef/extra-number/doc/~/product
+[median]: https://jsr.io/@nodef/extra-number/doc/~/median
+[modes]: https://jsr.io/@nodef/extra-number/doc/~/modes
+[range]: https://jsr.io/@nodef/extra-number/doc/~/range
+[variance]: https://jsr.io/@nodef/extra-number/doc/~/variance
+[arithmeticMean]: https://jsr.io/@nodef/extra-number/doc/~/arithmeticMean
+[geometricMean]: https://jsr.io/@nodef/extra-number/doc/~/geometricMean
+[harmonicMean]: https://jsr.io/@nodef/extra-number/doc/~/harmonicMean
+[quadriaticMean]: https://jsr.io/@nodef/extra-number/doc/~/quadriaticMean
+[cubicMean]: https://jsr.io/@nodef/extra-number/doc/~/cubicMean
