@@ -3,6 +3,7 @@ import {
   is,
   significantDigits,
   compare,
+  isUnordered,
   copySign,
   floor,
   ceil,
@@ -110,6 +111,16 @@ Deno.test("compare", () => {
   assert(b === 0);
   const c = compare(17, 12);
   assert(c > 0);
+});
+
+
+Deno.test("isUnordered", () => {
+  const a = isUnordered(3, NaN);
+  assertEquals(a, true);
+  const b = isUnordered(NaN, 4);
+  assertEquals(b, true);
+  const c = isUnordered(3, 4);
+  assertEquals(c, false);
 });
 //#endregion
 

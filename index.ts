@@ -128,6 +128,17 @@ export function significantDigits(x: number): number {
 export function compare(x: number, y: number): number {
   return x-y;
 }
+
+
+/**
+ * Check if two numbers are unordered (NaN involved).
+ * @param x a number
+ * @param y another number
+ * @returns x=NaN or y=NaN?
+ */
+export function isUnordered(x: number, y: number): boolean {
+  return Number.isNaN(x) || Number.isNaN(y);
+}
 //#endregion
 
 
