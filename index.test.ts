@@ -115,12 +115,14 @@ Deno.test("compare", () => {
 
 
 Deno.test("isUnordered", () => {
-  const a = isUnordered(3, NaN);
+  const a = isUnordered(10, NaN);
   assertEquals(a, true);
-  const b = isUnordered(NaN, 4);
+  const b = isUnordered(NaN, 12);
   assertEquals(b, true);
-  const c = isUnordered(3, 4);
+  const c = isUnordered(10, 12);
   assertEquals(c, false);
+  const d = isUnordered(NaN, NaN);
+  assertEquals(d, true);
 });
 //#endregion
 
@@ -129,10 +131,12 @@ Deno.test("isUnordered", () => {
 
 //#region SIGN
 Deno.test("copySign", () => {
-  const a = copySign(3.5, -1);
-  assertEquals(a, -3.5);
-  const b = copySign(-4.2, +1);
-  assertEquals(b, 4.2);
+  const a = copySign(3.14, -1);
+  assertEquals(a, -3.14);
+  const b = copySign(-3.14, 1);
+  assertEquals(b, 3.14);
+  const c = copySign(-6.28, -1);
+  assertEquals(c, -6.28);
 });
 //#endregion
 

@@ -1,3 +1,11 @@
+//#region CONSTANTS
+/** Smallest normal (not subnormal) 64-bit floating point number. */
+export const MIN_NORMAL = 2.2250738585072014e-308;
+//#endregion
+
+
+
+
 //#region ABOUT
 /**
  * Check if value is a number.
@@ -23,6 +31,32 @@
  */
 export function is(v: unknown): v is number {
   return typeof v==="number";
+}
+
+
+/**
+ * Check if number is normal (not zero, subnormal, infinite, or NaN).
+ * @param x a number
+ * @returns is normal number?
+ * @example
+ * ```ts
+ * xnumber.isNormal(3.14);
+ * // → true
+ * 
+ * xnumber.isNormal(0);
+ * // → false
+ * 
+ * xnumber.isNormal(1e-320);
+ * // → false
+ * 
+ * xnumber.isNormal(Infinity);
+ * // → false
+ */
+export function isNormal(x: number): boolean {
+  if (x === 0) return false;
+  if (!Number.isFinite(x)) return false;
+  if (Math.abs(x) < MIN_NORMAL) return false;
+  return true;
 }
 
 
@@ -135,6 +169,20 @@ export function compare(x: number, y: number): number {
  * @param x a number
  * @param y another number
  * @returns x=NaN or y=NaN?
+ * @example
+ * ```ts
+ * xnumber.isUnordered(10, NaN);
+ * // → true
+ * 
+ * xnumber.isUnordered(NaN, 12);
+ * // → true
+ * 
+ * xnumber.isUnordered(10, 12);
+ * // → false
+ * 
+ * xnumber.isUnordered(NaN, NaN);
+ * // → true
+ * ```
  */
 export function isUnordered(x: number, y: number): boolean {
   return Number.isNaN(x) || Number.isNaN(y);
@@ -150,6 +198,16 @@ export function isUnordered(x: number, y: number): boolean {
  * @param mag number whose magnitude is to be copied
  * @param sgn sign of the number to copy
  * @returns `|mag|` with sign of `sgn`
+ * @example
+ * ```ts
+ * xnumber.copySign(3.14, -1);
+ * // → -3.14
+ * 
+ * xnumber.copySign(-3.14, 1);
+ * // → 3.14
+ * 
+ * xnumber.copySign(-6.28, -1);
+ * // → -6.28
  */
 export function copySign(mag: number, sgn: number): number {
   return Math.sign(sgn)===Math.sign(mag)? mag : -mag;
