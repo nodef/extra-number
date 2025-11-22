@@ -20,6 +20,8 @@ export enum FloatClass {
 //#region CONSTANTS
 /** Smallest normal (not subnormal) 64-bit floating point number. */
 export const MIN_NORMAL = 2.2250738585072014e-308;
+/** Ratio of a circle's circumference to its diameter. */
+export const TAU = 2 * Math.PI;  
 //#endregion
 
 
