@@ -247,12 +247,8 @@ Deno.test("round", () => {
   const d = round(0.1 + 0.2, 1e-12);
   assertEquals(d, 0.3);
 });
-//#endregion
 
 
-
-
-//#region ROUND DIVISION
 Deno.test("floorDiv", () => {
   const a = floorDiv(15, 4);
   assertEquals(a, 3);
