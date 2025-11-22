@@ -21,7 +21,7 @@ export enum FloatClass {
 /** Smallest normal (not subnormal) 64-bit floating point number. */
 export const MIN_NORMAL = 2.2250738585072014e-308;
 /** Ratio of a circle's circumference to its diameter. */
-export const TAU = 2 * Math.PI;  
+export const TAU = 2 * Math.PI;
 //#endregion
 
 
@@ -63,13 +63,13 @@ export function is(v: unknown): v is number {
  * ```ts
  * xnumber.isNormal(3.14);
  * // → true
- * 
+ *
  * xnumber.isNormal(0);
  * // → false
- * 
+ *
  * xnumber.isNormal(1e-320);
  * // → false
- * 
+ *
  * xnumber.isNormal(Infinity);
  * // → false
  */
@@ -89,16 +89,16 @@ export function isNormal(x: number): boolean {
  * ```ts
  * xnumber.classify(0);
  * // → FloatClass.ZERO
- * 
+ *
  * xnumber.classify(1e-320);
  * // → FloatClass.SUBNORMAL
- * 
+ *
  * xnumber.classify(3.14);
  * // → FloatClass.NORMAL
- * 
+ *
  * xnumber.classify(Infinity);
  * // → FloatClass.INFINITE
- * 
+ *
  * xnumber.classify(NaN);
  * // → FloatClass.NAN
  */
@@ -119,13 +119,13 @@ export function classify(x: number): FloatClass {
  * ```ts
  * xnumber.isPerfect(6);
  * // → true (1+2+3=6)
- * 
+ *
  * xnumber.isPerfect(28);
  * // → true (1+2+4+7+14=28)
- * 
+ *
  * xnumber.isPerfect(12);
  * // → false (1+2+3+4+6=16)
- * 
+ *
  * xnumber.isPerfect(1);
  * // → false (no proper divisors)
  * ```
@@ -178,7 +178,7 @@ export {isAbundant as isExcessive};
  * ```ts
  * xnumber.abundance(12);
  * // → 4 (1+2+3+4+6=16; 16-12=4)
- * 
+ *
  * xnumber.abundance(15);
  * // → -6 (1+3+5=9; 9-15=-6)
  * ```
@@ -195,10 +195,10 @@ export function abundance(x: number): number {
  * @example
  * ```ts
  * xnumber.abundancyIndex(12);
- * // → 1.3333... (1+2+3+4+6+12=28; 28/12=7/3)
- * 
+ * // → 2.3333... (1+2+3+4+6+12=28; 28/12=7/3)
+ *
  * xnumber.abundancyIndex(15);
- * // → 0.6 (1+3+5+15=24; 24/15=8/5)
+ * // → 1.6 (1+3+5+15=24; 24/15=8/5)
  * ```
  */
 export function abundancyIndex(x: number): number {
@@ -268,13 +268,13 @@ export function compare(x: number, y: number): number {
  * ```ts
  * xnumber.isUnordered(10, NaN);
  * // → true
- * 
+ *
  * xnumber.isUnordered(NaN, 12);
  * // → true
- * 
+ *
  * xnumber.isUnordered(10, 12);
  * // → false
- * 
+ *
  * xnumber.isUnordered(NaN, NaN);
  * // → true
  * ```
@@ -297,10 +297,10 @@ export function isUnordered(x: number, y: number): boolean {
  * ```ts
  * xnumber.copySign(3.14, -1);
  * // → -3.14
- * 
+ *
  * xnumber.copySign(-3.14, 1);
  * // → 3.14
- * 
+ *
  * xnumber.copySign(-6.28, -1);
  * // → -6.28
  */
@@ -329,10 +329,10 @@ export function copySign(mag: number, sgn: number): number {
  * // → 9.15
  * ```
  */
-export function floor(x: number, pre: number=1): number {
+export function floor(x: number, pre: number = 1): number {
   return Math.floor(x/pre) * pre;
 }
-  
+
 
 /**
  * Round up a number to specific precision.
@@ -350,7 +350,7 @@ export function floor(x: number, pre: number=1): number {
  * // → 9.15
  * ```
  */
-export function ceil(x: number, pre: number=1): number {
+export function ceil(x: number, pre: number = 1): number {
   return Math.ceil(x/pre) * pre;
 }
 
@@ -377,15 +377,11 @@ export function ceil(x: number, pre: number=1): number {
  * // → 0.3 (nice!)
  * ```
  */
-export function round(x: number, pre: number=1): number {
+export function round(x: number, pre: number = 1): number {
   return Math.round(x/pre) * pre;
 }
-//#endregion
 
 
-
-
-//#region ROUNDED DIVISION
 /**
  * Perform floor-divison of two numbers.
  * @param x divisor
@@ -637,6 +633,62 @@ export function lerp(x: number, y: number, t: number): number {
 
 
 
+//#region FRACTIONAL
+/**
+ * Make a number purely fractional, by shifting the decimal point.
+ * @param x a number
+ * @param n maximum number of digits to shift (-1: all) [20]
+ * @returns fractional number
+ * @example
+ * ```ts
+ * xnumber.fractionize(123);
+ * // → 0.123
+ *
+ * xnumber.fractionize(-9876, 3);
+ * // → -0.988
+ *
+ * xnumber.fractionize(0.001234, 3);
+ * // → 0.001
+ * ```
+ */
+export function fractionize(x: number, n: number = 20): number {
+  const xp   = Math.abs(x);
+  const xdig = xp < 1? 0 : 1 + Math.floor(Math.log10(xp));
+  if (n < 0) return x * Math.pow(10, -xdig);
+  return Math.round(x * Math.pow(10, n - xdig)) * Math.pow(10, -n);
+}
+
+
+/**
+ * Make a number purely integer, by shifting the decimal point.
+ * @param x a number
+ * @param n maximum number of digits to shift (-1: all) [20]
+ * @returns integer number
+ * @example
+ * ```ts
+ * xnumber.defractionize(0.123);
+ * // → 123
+ *
+ * xnumber.defractionize(-0.988, 2);
+ * // → -99
+ *
+ * xnumber.defractionize(12.345, 2);
+ * // → 1235
+ * ```
+ */
+export function defractionize(x: number, n: number = 20): number {
+  let xp = Math.abs(x), i = 0;
+  for (; n<0 || i<n;) {
+    xp *= 10; ++i;
+    if (xp % 1 === 0) break;
+  }
+  return Math.round(x * Math.pow(10, i));
+}
+//#endregion
+
+
+
+
 //#region ARITHMETIC
 /**
  * Check if a number is a power-of-n.
@@ -659,7 +711,7 @@ export function isPow(x: number, n: number): boolean {
   if (n === 0) return x === 0;
   const p = log(Math.abs(x), Math.abs(n));
   if (p !== Math.floor(p)) return false;
-  return x < 0? n < 0 && (p & 1) === 1 : n > 0 || (p & 1) === 0;
+  return x < 0? (n < 0 && (p & 1) === 1) : (n > 0 || (p & 1) === 0);
 }
 
 
@@ -1120,7 +1172,7 @@ export function lcm(...xs: number[]): number {
  * // → 5040
  * ```
  */
-export function factorial(n: number, k: number=0): number {
+export function factorial(n: number, k: number = 0): number {
   if (n < 0) return 0;
   let a = 1;
   for (let i=k+1; i<=n; i++)
@@ -1531,18 +1583,40 @@ export function cubicMean(...xs: number[]): number {
 //#region ROMAN NUMERALS
 /** List of symbols in the Roman numeral system. */
 const ROMAN_SYMBOLS = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
-
 /** Respective values in the Roman numeral system. */
 const ROMAN_VALUES  = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+/** Maximum power-of-10 representable in Roman numerals. */
+const ROMAN_MAX_POW10 = 3;
 
 
 /**
  * Convert roman numerals to number.
  * @param txt roman numerals
- * @returns eg. XCV -> 95
+ * @returns eg. XCV -> 95, IV.V -> 4.5, IXe+II -> 900
+ * @example
+ * ```ts
+ * xnumber.fromRomanNumerals('XCV');
+ * // → 95
+ *
+ * xnumber.fromRomanNumerals('IV.V');
+ * // → 4.5
+ *
+ * xnumber.fromRomanNumerals('IXe+II');
+ * // → 900
+ * ```
  */
 export function fromRomanNumerals(txt: string): number {
-  let   s = ROMAN_SYMBOLS.length-1;
+  const m  = /^\s*(-?[\sIVXLCDM]+)\s*(?:\.([\sIVXLCDM]+))?(?:E[-+]([\sIVXLCDM]+))?\s*$/i.exec(txt) || [];
+  const aint = fromRomanInteger(m[1]);
+  const afrc = m[2]? fromRomanInteger(m[2]) : 0;
+  const aexp = m[3]? fromRomanInteger(m[3]) : 0;
+  return Math.sign(aint) * (Math.abs(aint) + fractionize(afrc)) * Math.pow(10, aexp);
+}
+export {fromRomanNumerals as fromRoman};
+
+
+function fromRomanInteger(txt: string): number {
+  let   s = ROMAN_SYMBOLS.length - 1;
   const n = txt.search(/^\s*-/) >= 0; let a = 0;
   txt = txt.replace(/\W/g, '').toUpperCase();
   for (let i=0, I=txt.length; i<I;  i += ROMAN_SYMBOLS[s].length) {
@@ -1552,16 +1626,43 @@ export function fromRomanNumerals(txt: string): number {
   }
   return n? -a : a;
 }
-export {fromRomanNumerals as fromRoman};
 
 
 /**
  * Convert number to roman numerals.
  * @param x a number
- * @returns eg. 95 -> XCV
+ * @param exp use exponential/scientific notation [false]
+ * @returns eg. 95 -> XCV, 4.5 -> IV.V, 900 -> IXe+II (scientific = true)
+ * @example
+ * ```ts
+ * xnumber.toRomanNumerals(95);
+ * // → 'XCV'
+ *
+ * xnumber.toRomanNumerals(4.5);
+ * // → 'IV.V'
+ *
+ * xnumber.toRomanNumerals(900, true);
+ * // → 'IXe+II'
+ * ```
  */
-export function toRomanNumerals(x: number): string {
-  let a = x < 0 ? '-' : '';
+export function toRomanNumerals(x: number, exp: boolean = false): string {
+  const xp = Math.abs(x);
+  // Let's get the exponent and mantissa.
+  const xexp = Math.floor(Math.log10(xp));
+  const dexp = exp || (xexp > ROMAN_MAX_POW10)? xexp : 0;
+  const dman = xp * Math.pow(10, -dexp);
+  const dfrc = defractionize(dman % 1, ROMAN_MAX_POW10);
+  const dint = Math.sign(x) * Math.floor(dman);
+  // Now, convert to roman numerals.
+  const aman = toRomanInteger(dint) + (dfrc? '.' + toRomanInteger(dfrc) : '');
+  const aexp = dexp !== 0? 'e' + (dexp > 0? '+' : '') + toRomanInteger(dexp) : '';
+  return aman + aexp;
+}
+export {toRomanNumerals as toRoman};
+
+
+export function toRomanInteger(x: number): string {
+  let a = x < 0? '-' : '';
   x = Math.abs(x);
   for (let s=ROMAN_SYMBOLS.length-1; s>=0; --s)
     while (x >= ROMAN_VALUES[s]) {
@@ -1570,9 +1671,8 @@ export function toRomanNumerals(x: number): string {
     }
   return a;
 }
-export {toRomanNumerals as toRoman};
+//#endregion
 
 
 // export {default as fromScientific} from './_fromScientific';
 // export {default as toScientific} from './_toScientific';
-//#endregion

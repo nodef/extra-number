@@ -24,6 +24,8 @@ import {
   constrain,
   normalize,
   remap,
+  fractionize,
+  defractionize,
   lerp,
   isPow,
   prevPow,
@@ -55,6 +57,8 @@ import {
   harmonicMean,
   quadriaticMean,
   cubicMean,
+  fromRomanNumerals,
+  toRomanNumerals,
 } from "./index.ts";
 
 
@@ -247,12 +251,8 @@ Deno.test("round", () => {
   const d = round(0.1 + 0.2, 1e-12);
   assertEquals(d, 0.3);
 });
-//#endregion
 
 
-
-
-//#region ROUND DIVISION
 Deno.test("floorDiv", () => {
   const a = floorDiv(15, 4);
   assertEquals(a, 3);
@@ -362,6 +362,30 @@ Deno.test("lerp", () => {
   assertEquals(c, 156.8);
 });
 // - https://processing.org/reference/lerp_.html
+//#endregion
+
+
+
+
+//#region FRACTIONAL
+Deno.test("fractionize", () => {
+  const a = fractionize(123);
+  assertEquals(a, 0.123);
+  const b = fractionize(-9876, 3);
+  assertEquals(b, -0.988);
+  const c = fractionize(0.001234, 3);
+  assertEquals(c, 0.001);
+});
+
+
+Deno.test("defractionize", () => {
+  const a = defractionize(0.123);
+  assertEquals(a, 123);
+  const b = defractionize(-0.988, 2);
+  assertEquals(b, -99);
+  const c = defractionize(12.3456, 2);
+  assertEquals(c, 1235);
+});
 //#endregion
 
 
@@ -724,5 +748,29 @@ Deno.test("cubicMean", () => {
   assertEquals(b, Math.cbrt(36/3));
   const c = cubicMean(1, 2, 3, 4);
   assertEquals(c, Math.cbrt(100/4));
+});
+//#endregion
+
+
+
+
+//#region ROMAN NUMERALS
+Deno.test("fromRomanNumerals", () => {
+  const a = fromRomanNumerals('XCV');
+  assertEquals(a, 95);
+  const b = fromRomanNumerals('IV.V');
+  assertEquals(b, 4.5);
+  const c = fromRomanNumerals('IXe+II');
+  assertEquals(c, 900);
+});
+
+
+Deno.test("toRomanNumerals", () => {
+  const a = toRomanNumerals(95);
+  assertEquals(a, 'XCV');
+  const b = toRomanNumerals(4.5);
+  assertEquals(b, 'IV.V');
+  const c = toRomanNumerals(900, true);
+  assertEquals(c, 'IXe+II');
 });
 //#endregion
