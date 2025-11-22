@@ -51,7 +51,7 @@ export const TAU = 2 * Math.PI;
  * ```
  */
 export function is(v: unknown): v is number {
-  return typeof v==="number";
+  return typeof v === "number";
 }
 
 
@@ -74,7 +74,7 @@ export function is(v: unknown): v is number {
  * // → false
  */
 export function isNormal(x: number): boolean {
-  if (x===0) return false;
+  if (x === 0) return false;
   if (!Number.isFinite(x)) return false;
   if (Math.abs(x) < MIN_NORMAL) return false;
   return true;
@@ -103,7 +103,7 @@ export function isNormal(x: number): boolean {
  * // → FloatClass.NAN
  */
 export function classify(x: number): FloatClass {
-  if (x===0)                    return FloatClass.ZERO;
+  if (x === 0)                  return FloatClass.ZERO;
   if (Number.isNaN(x))          return FloatClass.NAN;
   if (!Number.isFinite(x))      return FloatClass.INFINITE;
   if (Math.abs(x) < MIN_NORMAL) return FloatClass.SUBNORMAL;
@@ -131,7 +131,7 @@ export function classify(x: number): FloatClass {
  * ```
  */
 export function isPerfect(x: number): boolean {
-  return aliquotSum(x)===x;
+  return aliquotSum(x) === x;
 }
 
 
@@ -163,7 +163,7 @@ export function isPerfect(x: number): boolean {
 export function isAbundant(x: number): boolean {
   return aliquotSum(x) > x;
 }
-// export {isAbundant as isExcessive};
+export {isAbundant as isExcessive};
 
 
 // TODO: isPrimitiveAbundant()?
@@ -228,7 +228,7 @@ export function abundancyIndex(x: number): number {
  */
 export function significantDigits(x: number): number {
   const a = x.toExponential();
-  return a.replace(/e[\+\-0-9]*$/, "").replace( /^0\.?0*|\./, "").length;
+  return a.replace(/e[\+\-0-9]*$/, "").replace(/^0\.?0*|\./, "").length;
 }
 // - https://stackoverflow.com/questions/22884720/what-is-the-fastest-way-to-count-the-number-of-significant-digits-of-a-number
 //#endregion
@@ -255,7 +255,7 @@ export function significantDigits(x: number): number {
  * ```
  */
 export function compare(x: number, y: number): number {
-  return x-y;
+  return x - y;
 }
 
 
@@ -305,7 +305,7 @@ export function isUnordered(x: number, y: number): boolean {
  * // → -6.28
  */
 export function copySign(mag: number, sgn: number): number {
-  return Math.sign(sgn)===Math.sign(mag)? mag : -mag;
+  return Math.sign(sgn) === Math.sign(mag) ? mag : -mag;
 }
 //#endregion
 
@@ -330,9 +330,9 @@ export function copySign(mag: number, sgn: number): number {
  * ```
  */
 export function floor(x: number, pre: number=1): number {
-  return Math.floor(x/pre)*pre;
+  return Math.floor(x/pre) * pre;
 }
-
+  
 
 /**
  * Round up a number to specific precision.
@@ -351,7 +351,7 @@ export function floor(x: number, pre: number=1): number {
  * ```
  */
 export function ceil(x: number, pre: number=1): number {
-  return Math.ceil(x/pre)*pre;
+  return Math.ceil(x/pre) * pre;
 }
 
 
@@ -378,7 +378,7 @@ export function ceil(x: number, pre: number=1): number {
  * ```
  */
 export function round(x: number, pre: number=1): number {
-  return Math.round(x/pre)*pre;
+  return Math.round(x/pre) * pre;
 }
 //#endregion
 
@@ -497,7 +497,7 @@ export function rem(x: number, y: number): number {
  * ```
  */
 export function mod(x: number, y: number): number {
-  return x - y*Math.floor(x/y);
+  return x - y * Math.floor(x/y);
 }
 // - https://en.wikipedia.org/wiki/Modulo_operation
 
@@ -520,7 +520,7 @@ export function mod(x: number, y: number): number {
  * ```
  */
 export function modp(x: number, y: number): number {
-  return x - Math.abs(y)*Math.floor(x/Math.abs(y));
+  return x - Math.abs(y) * Math.floor(x / Math.abs(y));
 }
 // - https://en.wikipedia.org/wiki/Modulo_operation
 //#endregion
@@ -579,7 +579,7 @@ export {constrain as clamp};
  * ```
  */
 export function normalize(x: number, r: number, R: number): number {
-  return (x - r)/(R - r);
+  return (x - r) / (R - r);
 }
 export {normalize as norm};
 // - https://processing.org/reference/norm_.html
@@ -603,7 +603,7 @@ export {normalize as norm};
  * ```
  */
 export function remap(x: number, r: number, R: number, t: number, T: number): number {
-  return t + ((x - r)/(R - r)) * (T - t);
+  return t + ((x - r) / (R - r)) * (T - t);
 }
 export {remap as map};
 // - https://processing.org/reference/map_.html
@@ -628,7 +628,7 @@ export {remap as map};
  * ```
  */
 export function lerp(x: number, y: number, t: number): number {
-  return x + t*(y - x);
+  return x + t * (y - x);
 }
 // - https://processing.org/reference/lerp_.html
 // - https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
@@ -656,10 +656,10 @@ export function lerp(x: number, y: number, t: number): number {
  * ```
  */
 export function isPow(x: number, n: number): boolean {
-  if (n===0) return x===0;
+  if (n === 0) return x === 0;
   const p = log(Math.abs(x), Math.abs(n));
-  if (p!==Math.floor(p)) return false;
-  return x<0? n<0 && (p & 1)===1 : n>0 || (p & 1)===0;
+  if (p !== Math.floor(p)) return false;
+  return x < 0? n < 0 && (p & 1) === 1 : n > 0 || (p & 1) === 0;
 }
 
 
@@ -681,7 +681,7 @@ export function isPow(x: number, n: number): boolean {
  * ```
  */
 export function prevPow(x: number, n: number): number {
-  if (x<=1) return 0;
+  if (x <= 1) return 0;
   const p = Math.floor(Math.log(x) / Math.log(n));
   return Math.pow(n, p);
 }
@@ -705,7 +705,7 @@ export function prevPow(x: number, n: number): number {
  * ```
  */
 export function nextPow(x: number, n: number): number {
-  if (x<=0) return 1;
+  if (x <= 0) return 1;
   const p = Math.ceil(Math.log(x) / Math.log(n));
   return Math.pow(n, p);
 }
@@ -726,7 +726,7 @@ export function nextPow(x: number, n: number): number {
  * ```
  */
 export function root(x: number, n: number): number {
-  if ((n & 1)===0) return Math.pow(x, 1/n);
+  if ((n & 1) === 0) return Math.pow(x, 1/n);
   return Math.sign(x) * Math.pow(Math.abs(x), 1/n);
 }
 // - https://github.com/alawatthe/MathLib/blob/master/src/Functn/functions/root.ts
@@ -753,7 +753,7 @@ export function root(x: number, n: number): number {
  * ```
  */
 export function log(x: number, b: number=Math.E): number {
-  return Math.log(x)/Math.log(b);
+  return Math.log(x) / Math.log(b);
 }
 // - https://en.wikipedia.org/wiki/Logarithm
 //#endregion
@@ -784,7 +784,7 @@ export function log(x: number, b: number=Math.E): number {
 export function properDivisors(x: number): number[] {
   const a = []; x = Math.abs(x);
   for (let i=1; i<x; i++)
-    if (x % i===0) a.push(i);
+    if (x % i === 0) a.push(i);
   return a;
 }
 export {properDivisors as aliquotParts};
@@ -814,7 +814,7 @@ export {properDivisors as aliquotParts};
 export function aliquotSum(x: number): number {
   let a = 0; x = Math.abs(x);
   for (let i=0; i<x; i++)
-    if (x % i===0) a += i;
+    if (x % i === 0) a += i;
   return a;
 }
 
@@ -844,15 +844,15 @@ export function aliquotSum(x: number): number {
 export function minPrimeFactor(x: number): number {
   x = Math.abs(x);
   // 1. LPF of 2, 3 is the number itself.
-  if (x<=1) return 0;
-  if (x<=3) return x;
+  if (x <= 1) return 0;
+  if (x <= 3) return x;
   // 2. LPF for multiples of 2, 3.
-  if (x % 2===0) return 2;
-  if (x % 3===0) return 3;
+  if (x % 2 === 0) return 2;
+  if (x % 3 === 0) return 3;
   // 3. LPF can be 6k-1 or 6k+1.
   for (let i=6, I=Math.sqrt(x)+1; i<=I; i+=6) {
-    if (x % (i-1)===0) return i-1;
-    if (x % (i+1)===0) return i+1;
+    if (x % (i-1) === 0) return i-1;
+    if (x % (i+1) === 0) return i+1;
   }
   return x;
 }
@@ -885,21 +885,21 @@ export {minPrimeFactor as leastPrimeFactor};
 export function maxPrimeFactor(x: number): number {
   let a = 0; x = Math.abs(x);
   // 1. GPF of 2, 3 is the number itself.
-  if (x<=1) return 0;
-  if (x<=3) return x;
+  if (x <= 1) return 0;
+  if (x <= 3) return x;
   // 2. Remove factors 2, 3.
-  for (; x % 2===0; a=2)
+  for (; x % 2 === 0; a=2)
     x /= 2;
-  for (; x % 3===0; a=3)
+  for (; x % 3 === 0; a=3)
     x /= 3;
   // 3. Remove factors 6k-1, 6k+1.
   for (let i=6, I=Math.sqrt(x)+1; x>1 && i<=I; i+=6) {
-    for (; x % (i-1)==0; a=i-1)
+    for (; x % (i-1) === 0; a=i-1)
       x /= i-1;
-    for (; x % (i+1)==0; a=i+1)
+    for (; x % (i+1) === 0; a=i+1)
       x /= i+1;
   }
-  if (x<=1) return a;
+  if (x <= 1) return a;
   return x;
 }
 export {maxPrimeFactor as greatestPrimeFactor};
@@ -931,8 +931,8 @@ export {maxPrimeFactor as greatestPrimeFactor};
  */
 export function primeFactors(x: number): number[] {
   const a: number[] = []; x = Math.abs(x);
-  if (x<=1) return [];
-  if (x<=3) return [x];
+  if (x <= 1) return [];
+  if (x <= 3) return [x];
   // 2. Try factors 2, 3.
   x = pushPrimeFactorTo$(a, x, 2);
   x = pushPrimeFactorTo$(a, x, 3);
@@ -941,15 +941,15 @@ export function primeFactors(x: number): number[] {
     x = pushPrimeFactorTo$(a, x, i-1);
     x = pushPrimeFactorTo$(a, x, i+1);
   }
-  if (x>1) a.push(x);
+  if (x > 1) a.push(x);
   return a;
 }
 
 function pushPrimeFactorTo$(a: number[], x: number, f: number): number {
-  if (x % f!==0) return x;
+  if (x % f !== 0) return x;
   do {
     x /= f;
-  } while (x % f===0);
+  } while (x % f === 0);
   a.push(f);
   return x;
 }
@@ -981,8 +981,8 @@ function pushPrimeFactorTo$(a: number[], x: number, f: number): number {
  */
 export function primeExponentials(x: number): [number, number][] {
   const a: [number, number][] = []; x = Math.abs(x);
-  if (x<=1) return [];
-  if (x<=3) return [[x, 1]];
+  if (x <= 1) return [];
+  if (x <= 3) return [[x, 1]];
   // 2. Try factors 2, 3.
   x = pushPrimeExponentialTo$(a, x, 2);
   x = pushPrimeExponentialTo$(a, x, 3);
@@ -991,16 +991,16 @@ export function primeExponentials(x: number): [number, number][] {
     x = pushPrimeExponentialTo$(a, x, i-1);
     x = pushPrimeExponentialTo$(a, x, i+1);
   }
-  if (x>1) a.push([x, 1]);
+  if (x > 1) a.push([x, 1]);
   return a;
 }
 
 function pushPrimeExponentialTo$(a: [number, number][], x: number, f: number): number {
-  if (x % f!==0) return x;
+  if (x % f !== 0) return x;
   let e = 0;
   do {
     x /= f; ++e;
-  } while (x % f===0);
+  } while (x % f === 0);
   a.push([f, e]);
   return x;
 }
@@ -1033,7 +1033,7 @@ function pushPrimeExponentialTo$(a: [number, number][], x: number, f: number): n
  * ```
  */
 export function isPrime(x: number): boolean {
-  return x!==0 && minPrimeFactor(x) === Math.abs(x);
+  return x !== 0 && minPrimeFactor(x) === Math.abs(x);
 }
 
 
@@ -1055,7 +1055,7 @@ export function isPrime(x: number): boolean {
  */
 export function gcd(...xs: number[]): number {
   let a = xs[0] || 1;
-  for(let i=1, I=xs.length; i<I; i++)
+  for (let i=1, I=xs.length; i<I; i++)
     a = gcdPair(a, xs[i]);
   return a;
 }
@@ -1063,7 +1063,7 @@ export {gcd as hcf};
 
 // Find the greatest common divisor of a pair of numbers.
 function gcdPair(x: number, y: number): number {
-  while (y!==0) {
+  while (y !== 0) {
     const t = y;
     y = x % y;
     x = t;
@@ -1121,7 +1121,7 @@ export function lcm(...xs: number[]): number {
  * ```
  */
 export function factorial(n: number, k: number=0): number {
-  if (n<0) return 0;
+  if (n < 0) return 0;
   let a = 1;
   for (let i=k+1; i<=n; i++)
     a *= i;
@@ -1150,10 +1150,10 @@ export function factorial(n: number, k: number=0): number {
  */
 export function binomial(n: number, k: number): number {
   // 1. Generalization to negative integers
-  if (k<0 || k>Math.abs(n)) return 0;
-  if (n<0) return Math.pow(-1, k)*binomial(-n, k);
+  if (k < 0 || k > Math.abs(n)) return 0;
+  if (n < 0) return Math.pow(-1, k) * binomial(-n, k);
   // 2. Take advantage of symmetry
-  k = k>n-k? n-k:k;
+  k = k > n - k? n - k : k;
   let a = 1;
   for (let i=1; i<=k; i++, n--)
     a *= n/i;
@@ -1182,8 +1182,8 @@ export function binomial(n: number, k: number): number {
 export function multinomial(...ks: number[]): number {
   let n = sum(...ks), a = 1;
   for (let i=0, j=0, I=ks.length; i<I;) {
-    if (j<=0) j = ks[i++];
-    else a *= n--/j--;
+    if (j <= 0) j = ks[i++];
+    else a *= n-- / j--;
   }
   return a;
 }
@@ -1208,7 +1208,7 @@ export function multinomial(...ks: number[]): number {
  * ```
  */
 export function degrees(x: number): number {
-  return x*(180/Math.PI);
+  return x * (180 / Math.PI);
 }
 // - https://processing.org/reference/degrees_.html
 
@@ -1227,7 +1227,7 @@ export function degrees(x: number): number {
  * ```
  */
 export function radians(x: number): number {
-  return x*(Math.PI/180);
+  return x * (Math.PI / 180);
 }
 // - https://processing.org/reference/radians_.html
 //#endregion
@@ -1301,11 +1301,11 @@ export function product(...xs: number[]): number {
  * ```
  */
 export function median(...xs: number[]): number {
-  if (xs.length===0) return 0;
-  xs.sort((a, b) => a-b);
-  const i = xs.length>>1;
-  if ((xs.length & 1)===1) return xs[i];
-  return (xs[i-1] + xs[i])/2;
+  if (xs.length === 0) return 0;
+  xs.sort((a, b) => a - b);
+  const i = xs.length >> 1;
+  if ((xs.length & 1) === 1) return xs[i];
+  return (xs[i - 1] + xs[i]) / 2;
 }
 // - https://stackoverflow.com/questions/45309447/calculating-median-javascript
 // - https://en.wikipedia.org/wiki/Median
@@ -1328,7 +1328,7 @@ export function median(...xs: number[]): number {
  * ```
  */
 export function modes(...xs: number[]): number[] {
-  xs.sort((a, b) => a-b);
+  xs.sort((a, b) => a - b);
   const r = maxRepeat(xs);
   return getRepeats(xs, r);
 }
@@ -1338,7 +1338,7 @@ export function modes(...xs: number[]): number[] {
 function maxRepeat(xs: number[]): number {
   let count = Math.min(xs.length, 1), max = count;
   for (let i=1, I=xs.length; i<I; i++) {
-    if (xs[i-1]===xs[i]) count++;
+    if (xs[i-1] === xs[i]) count++;
     else { max = Math.max(max, count); count = 1; }
   }
   return Math.max(max, count);
@@ -1348,7 +1348,7 @@ function maxRepeat(xs: number[]): number {
 function getRepeats(xs: number[], r: number): number[] {
   const a: number[] = []; r--;
   for (let i=0, I=xs.length-r; i<I; i++)
-    if (xs[i]===xs[i+r]) a.push(xs[i+=r]);
+    if (xs[i] === xs[i+r]) a.push(xs[i+=r]);
   return a;
 }
 
@@ -1392,11 +1392,11 @@ export function range(...xs: number[]): [number, number] {
  * ```
  */
 export function variance(...xs: number[]): number {
-  if (xs.length===0) return 0;
+  if (xs.length === 0) return 0;
   const m = arithmeticMean(...xs); let a = 0;
   for (const x of xs)
-    a += (x-m)**2;
-  return a/xs.length;
+    a += (x - m) ** 2;
+  return a / xs.length;
 }
 // - https://en.wikipedia.org/wiki/Variance
 //#endregion
@@ -1423,8 +1423,8 @@ export function variance(...xs: number[]): number {
  * ```
  */
 export function arithmeticMean(...xs: number[]): number {
-  if (xs.length===0) return 0;
-  return sum(...xs)/xs.length;
+  if (xs.length === 0) return 0;
+  return sum(...xs) / xs.length;
 }
 export {arithmeticMean as mean};
 
@@ -1472,7 +1472,7 @@ export function harmonicMean(...xs: number[]): number {
   const p = product(...xs); let q = 0;
   for (const x of xs)
     q += p/x;
-  return n*p/q;
+  return n * p/q;
 }
 
 
@@ -1546,8 +1546,8 @@ export function fromRomanNumerals(txt: string): number {
   const n = txt.search(/^\s*-/) >= 0; let a = 0;
   txt = txt.replace(/\W/g, '').toUpperCase();
   for (let i=0, I=txt.length; i<I;  i += ROMAN_SYMBOLS[s].length) {
-    while (s>=0 && txt.substring(i, i +  ROMAN_SYMBOLS[s].length) !== ROMAN_SYMBOLS[s]) --s;
-    if (s<0) break;
+    while (s >= 0 && txt.substring(i, i +  ROMAN_SYMBOLS[s].length) !== ROMAN_SYMBOLS[s]) --s;
+    if (s < 0) break;
     a += ROMAN_VALUES[s];
   }
   return n? -a : a;
@@ -1561,10 +1561,10 @@ export {fromRomanNumerals as fromRoman};
  * @returns eg. 95 -> XCV
  */
 export function toRomanNumerals(x: number): string {
-  let a = x<0? '-' : '';
+  let a = x < 0 ? '-' : '';
   x = Math.abs(x);
-  for  (let s=ROMAN_SYMBOLS.length-1; s>=0; --s)
-    while (x>=ROMAN_VALUES[s]) {
+  for (let s=ROMAN_SYMBOLS.length-1; s>=0; --s)
+    while (x >= ROMAN_VALUES[s]) {
       x -= ROMAN_VALUES[s];
       a += ROMAN_SYMBOLS[s];
     }
