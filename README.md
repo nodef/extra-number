@@ -1,5 +1,6 @@
-A **number** is a mathematical object used to count, measure, and label. This package is a collection for common number functions (queries, comparisons, rounding, divisors, etc).<br>
+A collection for common number functions (queries, comparisons, rounding, divisors, etc).<br>
 
+A **number** is a mathematical object used to count, measure, and label.
 In JavaScript, [Number] type is double-precision 64-bit binary format IEEE 754
 value. This package includes common number functions related to querying
 **about** numbers, **comparing** numbers, **rounding** numbers, performing
@@ -11,7 +12,8 @@ basic **statistical** analysis, and finding various **statistical means**.
 
 ▌
 📦 [JSR](https://jsr.io/@nodef/extra-number),
-📰 [Docs](https://jsr.io/@nodef/extra-number/doc),
+📦 [NPM](https://www.npmjs.com/package/extra-number),
+📰 [Docs](https://jsr.io/@nodef/extra-number/doc).
 
 <br>
 
