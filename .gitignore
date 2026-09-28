@@ -1,3 +1,7 @@
+# Generated files
+.build/
+*.map
+
 # Logs
 logs
 *.log

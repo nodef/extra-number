@@ -1,5 +1,10 @@
 A collection for common number functions (queries, comparisons, rounding, divisors, etc).<br>
 
+▌
+📦 [JSR](https://jsr.io/@nodef/extra-number),
+📦 [NPM](https://www.npmjs.com/package/extra-number),
+📰 [Docs](https://jsr.io/@nodef/extra-number/doc).
+
 A **number** is a mathematical object used to count, measure, and label.
 In JavaScript, [Number] type is double-precision 64-bit binary format IEEE 754
 value. This package includes common number functions related to querying
@@ -9,11 +14,6 @@ numbers, performing **arithmetic** operations, obtaining **divisors** of a
 number (and related operations), getting the number of possible **arrangements**
 of a set of objects, performing **geometry**-related calculations, performing
 basic **statistical** analysis, and finding various **statistical means**.
-
-▌
-📦 [JSR](https://jsr.io/@nodef/extra-number),
-📦 [NPM](https://www.npmjs.com/package/extra-number),
-📰 [Docs](https://jsr.io/@nodef/extra-number/doc).
 
 <br>
 
@@ -33,10 +33,10 @@ xnumber.round(9.1357, 0.05);
 xnumber.significantDigits(0.0034);
 // → 2
 
-// TOFIX:
-// xnumber.fromRoman('DCXLIX');
+xnumber.fromRoman('DCXLIX');
 // → 649
 
+// TOFIX:
 // xnumber.toScientific(695700000);
 // → '6.957×10⁸' (radius of Sun in m)
 ```
