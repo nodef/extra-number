@@ -2,7 +2,7 @@ A collection for common number functions (queries, comparisons, rounding, diviso
 
 ▌
 📦 [JSR](https://jsr.io/@nodef/extra-number),
-📦 [NPM](https://www.npmjs.com/package/extra-number),
+📦 [NPM](https://www.npmjs.com/package/@nodef/extra-number),
 📰 [Docs](https://jsr.io/@nodef/extra-number/doc).
 
 A **number** is a mathematical object used to count, measure, and label.
